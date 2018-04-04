@@ -4,52 +4,48 @@
 <head>
     <title>BrewTrackr</title>
     <meta charset="utf-8">
-
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 </head>
 
 <body>
-  <main>
+
       <navigation>
         <a href="#" class="nav-sign-up">SIGN UP</a>
         <a href="#" class="nav-log-in">LOG IN</a>
         <a href="#" class="nav-demo">DEMO</a>
       </navigation>
  
-    <header> 
-      <h1>BrewTrackr</h1>
-      <h3> Keep track of all your favorite coffee and breweries in town!</h3>
-      <button class="sign-up-here-button">SIGN UP HERE</button>
-    </header>
-  </main>
-
-
-  <div class="create-account">
-      <form class="createAccount account">
-        <h1 class="home-btn">BrewTrackr</h1>
-        <h2 class="create-acct-header">Create an account</h2>
-            <input type="text" id="username" name="username" placeholder="Enter username"aria-label="create-username" required><br>
-            <input type="password" id="password" name="password" placeholder="Enter password" aria-label="create-password" required><br> 
-            <button type="submit" class="signup-button">SIGN UP</button><br>
-            <span class="login-now">Already have an account? <a href="#" class="login-here">Log in here</a></span>
-      </form>
-  </div>
-
-  <div class="log-in">
-        <form class="logIn account">
-            <h1 class="home-btn">BrewTrackr</h1>
-            <h2 class="log-in-header">Log in</h2>
-              <input type="text" id="existingUsername" name="username" placeholder="Enter username" aria-label="username" required><br>
-              <input type="password" id="existingPassword" name="password" placeholder="Enter password" aria-label="password" required><br>
-              <button type="submit" class="login-button">LOG IN</button><br>
-              <span class="login-now">Don't have an account? <a href="#" class="signup-here">Sign up here</a></span>
-              <div class="demo-account">
-                <h3 class="demo-account-header">Demo Account</h3>
-                <p class="demo">Username : demouser</p>
-                <p class="demo">Password : demopassword</p>
+  <main>
+    <section role="region">
+          <header role="header">
+            <h1>BrewTrackr</h1>
+          </header>
+  
+        <div id="login">
+          <div class="row">
+            <div>
+              <div class="login-text">
+                <h2>Sign In</h2>
+                <p class="demo">Username: Demo</p>
+                <p class="demo">Password: 1234567</p>
+                <form class="login-form">
+                  <fieldset>
+                    Username: <input type="text" name="username" class="username" /><br>
+                    Password: <input type="password" name="password" class="password" /><br>
+                    <button name="button">Login</button>
+                    <p>Don't have an account? Register <a href="#" class="register-button">here<a/></p>
+                  <fieldset>
+                </form>
               </div>
-        </form>
-      </div>
+            </div>
+          </div>
+        </div>
+    </section>
+ </main>
+  
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
