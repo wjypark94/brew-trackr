@@ -2,13 +2,10 @@
 'use strict';
 const express = require('express');
 const mongoose = require('mongoose');
-const morgan = require('morgan');
-const passport = require('passport');
 
 mongoose.Promise = global.Promise;
 const app = express();
 
-app.use(morgan('common'));
 app.use(express.static('public'));
 
 
@@ -53,9 +50,7 @@ function closeServer() {
 
 
 if (require.main === module) {
-  app.listen(process.env.PORT || 8080, function () {
-    console.info(`App listening on ${this.address().port}`);
-  });
+  runServer(DATABASE_URL).catch(err => console.error(err));
 }
 
 module.exports = {app, runServer, closeServer};
