@@ -1,0 +1,199 @@
+* {
+    box-sizing: border-box;
+  }
+
+  html body {  
+    font-family: 'Roboto Condensed';
+    height: 100%;
+    text-align: center;
+    background: #f2f2f2;
+  }
+
+  header {
+      font-family: 'Roboto Condensed';
+  }
+
+  h1{
+      font-size: 100px;
+      margin-top: 150px;
+  }
+
+  header p{
+      font-size: 20px;
+      margin-top: -40px;
+   
+  }
+
+  /**NAVIGATION CSS**/
+  nav {
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index: 10;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.20);
+  }
+
+
+  nav a {
+    text-decoration: none;
+    color:inherit;
+  }
+  
+  nav ul {
+    overflow: hidden;
+    text-align: center;
+    margin: 0;
+    padding:0;
+    color: white;
+    background-color: black;
+    letter-spacing: 2px;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    padding: 18px 15px;
+    font-size: 17px;
+    transition: 0.3s ease;
+  }
+  
+
+  .nav-left {
+    position: relative;
+    right: 95px;
+  }
+  
+  .nav-right {
+    position: relative;
+    left: 95px;
+  }
+
+
+/*About section*/
+
+#about {
+    width: 100%;
+    height: 160%;
+    background: #f2f2f2;
+    text-align: left;
+    position: absolute;
+    top: 600px;
+  }
+  
+  .about-text {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    top: 100px;
+  }
+  
+  .about-text h2 {
+    line-height: 45px;
+    font-size: 40px;
+  }
+  
+  .about-text p {
+    font-size: 20px;
+    line-height:35px;
+    padding-bottom: 25px;
+  }
+ 
+
+/*How to section*/
+
+#how-to {
+    padding-bottom: 50px;
+    padding-top: 30px;
+    width: 100%;
+    height: 130%;
+    background: #f2f2f2;
+    text-align: left;
+    position: absolute;
+    color: #333333;
+    top: 1430px;
+  }
+  
+  .how-to-text {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    top: 60px;
+    margin-bottom: 60px;
+  }
+  
+  .how-to-text h2 {
+    line-height: 45px;
+    font-size: 40px;
+  }
+  
+  .how-to-text p {
+    font-size: 20px;
+    line-height:35px;
+    padding-bottom: 25px;
+  }
+  
+  /*Register section*/
+  
+  #register {
+    padding-bottom: 100px;
+    width: 100%;
+    height: 105%;
+    text-align: center;
+    position: absolute;
+    top: 2100px;
+    background: #f2f2f2;
+  }
+  
+  .register-text {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    top: 90px;
+    text-align: center;
+  }
+  
+  .register-text p {
+    font-size: 21px;
+  }
+  
+  .register-text h2 {
+    font-size: 52px;
+    line-height: 40px;
+  }
+  
+  
+  .register-form input {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px #c4c4c4;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  button {
+    margin-top: 20px;
+    margin-bottom: 160px;
+    padding: 10px;
+    width: 160px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    background-color: #333333;
+    color: #f2f2f2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  }
+  
+  button:hover {
+    color: #19f6e8;
+  }
+  
+  fieldset {
+    border: none;
+    font-size: 19px;
+  }
+
+
+
+
+  

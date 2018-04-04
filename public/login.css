@@ -1,37 +1,29 @@
-* {
-    box-sizing: border-box;
-  }
-
-  html body {
-    font-family: 'Roboto Condensed', sans-serif;
-  }
-
-
-
-  /* LOG IN CSS **/
-  header {
+ header {
     text-align: center;
-    font-size: 26px;
+    font-size: 24px;
     position: relative;
+    font-family: 'Roboto Condensed';
   }
   
   #login {
     background: #f2f2f2;
     text-align: center;
-    margin-right: 5%;
-    margin-left: 5%;
-    margin-top: 30px;
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-top: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border: 2px solid black;
+    border: 3px solid black;
+    font-family: 'Roboto Condensed';
   }
 
   .login-text h2 {
-    font-size: 30px;
+    font-size: 27px;
   }
   
   .demo {
-    text-align: center;
+    font-family: 'Roboto Condensed';
+    font-size: 15px;
   }
   
   .login-form input {
@@ -47,7 +39,7 @@
   
 fieldset {
     border: none;
-    font-size: 18px;
+    font-size: 20px;
   }
   
   fieldset p {
@@ -57,12 +49,12 @@ fieldset {
   }
 
   button {
-    margin-top: 20px;
-    padding: 3px;
-    width: 150px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 5px;
+    margin-top: 18px;
+    padding: 4px;
+    width: 200px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 9px;
     background-color: #333333;
     color: #f2f2f2;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.20);
@@ -71,5 +63,3 @@ fieldset {
   button:hover {
     color: yellow;
   }
-  
-/*****/
