@@ -20,6 +20,12 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
+let server;
+
 let server;
 
 function runServer() {
