@@ -26,8 +26,6 @@ app.get('/', (req, res) => {
 
 let server;
 
-let server;
-
 function runServer() {
   const port = process.env.PORT || 8080;
   return new Promise((resolve, reject) => {
