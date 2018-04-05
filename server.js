@@ -1,61 +1,75 @@
-
-'use strict';
+'use strict'
 const express = require('express');
-const mongoose = require('mongoose');
-
-mongoose.Promise = global.Promise;
 const app = express();
+const mongoose = require('mongoose');
+const {DATABASE_URL, PORT} = require('./config');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
 
+const jsonParser = bodyParser.json();
+
+app.use(morgan('common'));
+
+//telling our app to use express.static middleware
+//saying that static assets are located in a folder called public
 app.use(express.static('public'));
 
-
-// CORS
-app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
-  if (req.method === 'OPTIONS') {
-    return res.send(204);
-  }
-  next();
-});
-
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
-});
+mongoose.Promise = global.Promise;
 
 let server;
+let port;
 
-function runServer() {
-  const port = process.env.PORT || 8080;
-  return new Promise((resolve, reject) => {
-      server = app.listen(port, () => {
-          console.log(`Your app is listening on port ${port}`);
-          resolve(server);
-      }).on('error', err => {
-          reject(err);
-      });
-  });
+//runServer is responsible for coordinating the connection
+//to the database and the running of the HTTP server
+//use Mongoose to connect to the database using the URL from config.js
+
+function runServer(databaseUrl, port=PORT){
+    return new Promise(function(resolve, reject){
+        mongoose.connect(databaseUrl, function(err){
+                if(err){
+                    return reject(err);
+                }
+                console.log(`mongoose connected to ${databaseUrl}`);
+                server = app.listen(port, function(){
+                    console.log(`Your app is listening on port ${port}`);
+                    resolve();
+                })
+                .on('error', function(err){
+                    mongoose.disconnect();
+                    reject(err);
+                });
+        });
+    });
 }
 
-function closeServer() {
-  return new Promise((resolve, reject) => {
-      console.log('Closing server');
-      server.close(err => {
-          if (err) {
-              reject(err);
-              // so we don't also call `resolve()`
-              return;
-          }
-          resolve();
-      });
-  });
+//closeServer needs access to a server object but that only 
+//gets created wen runServer runs so we declare server here 
+//and then assign a value to it in run
+
+//responsible for disconnecting from the database and
+//closing down the app
+
+function closeServer(){
+    return new Promise(function(resolve, reject){
+        mongoose.disconnect().then(()=>{
+            return new Promise(function(resolve, reject){
+                console.log("closing server");
+                server.close(err=>{
+                    if(err){
+                        console.log(err);
+                        return reject(err);
+                    }
+                    resolve();
+                });
+            });
+        });
+    });
 }
 
-
+//useful trick for making this file both an executabel script 
+//and a module
 if (require.main === module) {
-  runServer().catch(err => console.error(err));
+  runServer(DATABASE_URL).catch(err=> console.log(err));
 }
 
 module.exports = {app, runServer, closeServer};
-
