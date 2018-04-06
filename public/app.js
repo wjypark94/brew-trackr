@@ -12,6 +12,7 @@ $('.register-button').on('click', event => {
 });
 
 
+
 // Register form
 
 $('.register-form').on('submit', event => {
@@ -29,7 +30,7 @@ $('.register-form').on('submit', event => {
         
         success: response => {
             console.log(response);
-            //window.location = 'places.html' 
+           //window.location = 'login.html' 
         },
 
         error: error => console.log(error),
@@ -37,7 +38,7 @@ $('.register-form').on('submit', event => {
 });
 
 
-//Authenticatipn
+//Authentication
 
 $('.login-form').on('submit', event => {
     event.preventDefault();
@@ -53,6 +54,8 @@ $('.login-form').on('submit', event => {
         dataType: 'json',
 
         success: response => {
+            console.log(response.authToken, response.userId)
+            console.log("success!")
             localStorage.setItem('token', response.authToken)
             localStorage.setItem('userId', response.userId)
             window.location = "places.html";

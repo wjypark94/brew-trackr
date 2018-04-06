@@ -38,6 +38,20 @@ app.use('/api/users/', usersRouter);
 app.use('/api/auth/', authRouter);
 
 
+app.use('*', function (req, res) {
+  return res.status(404).json({ message: 'Not Found' });
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
+app.get('/places', (req, res) => {
+  res.sendFile(__dirname + '/public/places.html');
+});
+
+
+
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
 // A protected endpoint which needs a valid JWT to access it
