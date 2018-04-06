@@ -47,6 +47,7 @@ app.get('/api/protected', jwtAuth, (req, res) => {
   });
 });
 
+
 let server;
 let port;
 

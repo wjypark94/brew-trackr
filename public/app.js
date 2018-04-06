@@ -22,12 +22,16 @@ $('.register-form').on('submit', event => {
 
     $.ajax({
         method: 'POST',
-        url: '/api/users/',
+        url: '/api/users',
         data: JSON.stringify({username, password}),
         contentType: 'application/json',
         dataType: 'json',
+        
+        success: response => {
+            console.log(response);
+            //window.location = 'places.html' 
+        },
 
-        success: response => window.location = 'login.html',
         error: error => console.log(error),
     });
 });
