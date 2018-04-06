@@ -30,7 +30,7 @@ $('.register-form').on('submit', event => {
         
         success: response => {
             console.log(response);
-           //window.location = 'login.html' 
+           window.location = 'login.html' 
         },
 
         error: error => console.log(error),
@@ -59,7 +59,6 @@ $('.login-form').on('submit', event => {
             localStorage.setItem('token', response.authToken)
             localStorage.setItem('userId', response.userId)
             window.location = "places.html";
-
         }
-    });
+    })
 });
