@@ -8,7 +8,7 @@ mongoose.Promise = global.Promise;
 let brewSchema = mongoose.Schema(
     {
         name: String,
-        address: String
+        city: String
     }
 )
 
