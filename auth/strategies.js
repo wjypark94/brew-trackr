@@ -1,5 +1,5 @@
 'use strict';
-const { Strategy: LocalStrategy } = require('passport-local');
+/*const { Strategy: LocalStrategy } = require('passport-local');
 
 // Assigns the Strategy export to the name JwtStrategy using object destructuring
 // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Assigning_to_new_variable_names
@@ -54,3 +54,4 @@ const jwtStrategy = new JwtStrategy(
 );
 
 module.exports = { localStrategy, jwtStrategy };
+*/

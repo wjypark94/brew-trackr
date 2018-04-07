@@ -9,7 +9,7 @@ const passport = require('passport');
 mongoose.Promise = global.Promise;
 
 const { router: usersRouter } = require('./users');
-const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
+//const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 const {DATABASE_URL, PORT} = require('./config');
 
 const app = express();
@@ -31,11 +31,11 @@ app.use(function (req, res, next) {
   next();
 });
 
-passport.use(localStrategy);
-passport.use(jwtStrategy);
+//passport.use(localStrategy);
+//passport.use(jwtStrategy);
 
 app.use('/api/users/', usersRouter);
-app.use('/api/auth/', authRouter);
+//app.use('/api/auth/', authRouter);
 
 
 app.use('*', function (req, res) {
