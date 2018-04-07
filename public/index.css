@@ -68,6 +68,16 @@
     left: 95px;
   }
 
+  .nav-logo {
+    color: tan;
+  }
+
+  nav ul .nav-hover:hover {
+    color: orange;
+}
+
+
+
 
 /*About section*/
 
