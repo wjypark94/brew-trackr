@@ -39,5 +39,12 @@
   }
 
 nav ul li {
+    display: inline-block;
     font-size: 20px;
+    padding: 22px;
 }
+
+nav ul .nav-hover:hover {
+    color: orange;
+}
+
