@@ -71,4 +71,13 @@ function displayResults(result) {
         });
     }
 
+    function activatePlacesSearch() {
+        let options = {
+            types: ['(regions)']
+        };
+        let input = document.getElementById('search-term');
+        let autocomplete = new google.maps.places.Autocomplete(input, options);
+    }
+    
+
     $(searchLocation);
