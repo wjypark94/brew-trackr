@@ -4,6 +4,7 @@
   
   /*Navigation*/
   
+  
   html body {
     background: #f2f2f2;
     font-family: 'Roboto Condensed', sans-serif;
@@ -48,3 +49,16 @@ nav ul .nav-hover:hover {
     color: orange;
 }
 
+
+h1 {
+  text-align: center;
+}
+
+
+
+/**** start display ***/
+
+.start-display {
+  padding-top: 100px;
+  text-align: center;
+}

@@ -9,26 +9,33 @@
   <link rel="stylesheet" type="text/css" href="/places.css">
 </head>
 <body>
-    <h1>places</h1>
-    <section role="region">
-        <header role="banner" class="title row">
-           <h1 class="header"></h1>
-        </header>
+<main role="main">
 
         <nav role="navigation" class="nav">
             <ul>
               <li class="nav-left"><span class="nav-logo">BrewTrackr</span></li>
-              <a href="/places.html"><li class="nav-left nav-hover">Dashboard</li></a>
+              <a href="/places.html"><li class="nav-left nav-hover">Browse</li></a>
               <a href="/placesnew.html"><li class="nav-left nav-hover">Add New Brew</li></a>
               <a href="/"><li class="nav-right nav-hover log-out" id="demo-button">Log out</li></a>
             </ul>
         </nav>
-  </section>
+
+        <div class="start-display" id="start-page">
+            <header class="row" role="banner">
+                <h1 class="logo">BrewTrackr</h1>
+                <p>Look up your favorite local coffee and breweries in any city!</p>
+            </header>
+
+            <form action="#" class="search-form row" id="search-query-form">
+                <input type="text" placeholder="Enter a city" class="search-query" id="search-term" required>
+                <button type="submit" aria-label="search" class="submit-button">Search</button>
+            </form>
+        </div>
 
   <h1>Brew List</h1>
         
 
-
+</main>
   <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
