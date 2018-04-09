@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/float-grid.css">
-  <link rel="stylesheet" type="text/css" href="/places.css">
+  <link rel="stylesheet" type="text/css" href="/coffee.css">
 </head>
 <body>
 <main role="main">
@@ -14,8 +14,9 @@
         <nav role="navigation" class="nav">
             <ul>
               <li class="nav-left"><span class="nav-logo">BrewTrackr</span></li>
-              <a href="/places.html"><li class="nav-left nav-hover">Browse</li></a>
-              <a href="/placesnew.html"><li class="nav-left nav-hover">Add New Brew</li></a>
+              <a href="/coffee.html"><li class="nav-left nav-hover">Coffee</li></a>
+              <a href="/brewery.html"><li class="nav-left nav-hover">Breweries</li></a>
+              <a href="/placesnew.html"><li class="nav-right nav-hover">My Brew</li></a>
               <a href="/"><li class="nav-right nav-hover log-out" id="demo-button">Log out</li></a>
             </ul>
         </nav>
@@ -23,16 +24,19 @@
         <div class="start-display" id="start-page">
             <header class="row" role="banner">
                 <h1 class="logo">BrewTrackr</h1>
-                <p>Look up your favorite local coffee and breweries in any city!</p>
+                <p>Look up your favorite local coffee in any city!</p>
             </header>
 
             <form action="#" class="search-form row" id="search-query-form">
                 <input type="text" placeholder="Enter a city" class="search-query" id="search-term" required>
                 <button type="submit" aria-label="search" class="submit-button">Search</button>
             </form>
-        </div>
-
-  <h1>Brew List</h1>
+            
+          
+          </div>
+         
+     
+  <h1></h1>
 
   <nav role="navigation" class="navigation hide" id ="results-navigation">
       <div class="options row"></div>
@@ -48,7 +52,7 @@
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
-  <script src="/places.js"></script>
+  <script src="/coffee.js"></script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOvzEKDvseZ-ZzmsmraR4rVQqhv0Fz8nI&libraries=places&callback=activatePlacesSearch"></script>
 </body>
 </html>

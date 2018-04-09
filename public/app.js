@@ -58,7 +58,7 @@ $('.login-form').on('submit', event => {
             console.log("success!")
             localStorage.setItem('token', response.authToken)
             localStorage.setItem('userId', response.userId)
-            window.location = "places.html";
+            window.location = "coffee.html";
         }
     })
 });

@@ -10,7 +10,7 @@ function getDataFromFourApi() {
             near: city,
             venuePhotos: 1,
             limit: 21,
-            query: 'coffee',
+            query: 'breweries',
         },
         dataType: 'json',
         type: 'GET',
@@ -37,7 +37,7 @@ function displayResults(result) {
     //console.log(result.venue.location.formattedAddress[0])
     //console.log(result);
         let brewLocation = result.venue.name;
-        let hikeLink = `https://www.google.com/maps/search/${brewLocation} + ${result.venue.location.formattedAddress[1]}`;
+        let brewLink = `https://www.google.com/maps/search/${brewLocation} + ${result.venue.location.formattedAddress[1]}`;
         if (result.venue.photos.groups.length > 0){
             return `
                 <div class="result col-3">
@@ -54,7 +54,7 @@ function displayResults(result) {
                         <p class="result-address">${result.venue.location.formattedAddress[0]}</p>
                         <p class="result-address">${result.venue.location.formattedAddress[1]}</p>
                         <p class="result-address">${result.venue.location.formattedAddress[2]}</p>
-                        <a class="hike-directions" href="${hikeLink}" target="_blank">Get Directions</a>
+                        <a class="hike-directions" href="${brewLink}" target="_blank">Get Directions</a>
                     </div>
                 </div>
             `;
@@ -64,12 +64,12 @@ function displayResults(result) {
     function searchLocation() {
         $('.search-form').submit(function (event) {
             event.preventDefault();
-            $('.navigation').removeClass("hide");
             $('#foursquare-results').html("");
             getDataFromFourApi();
-            $('button').removeClass("selected");
         });
     }
+
+
 
     function activatePlacesSearch() {
         let options = {

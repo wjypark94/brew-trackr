@@ -63,6 +63,7 @@ h1 {
   text-align: center;
 }
 
+
 header {
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.7);
@@ -77,18 +78,18 @@ h1.logo {
   margin-bottom: 15px;
 }
 
-form {
+.search-form {
   padding: 30px;
 }
 
-form input {
+.search-form input {
   height: 50px;
   width: 250px;
   padding: 10px;
   border: 0px;
 }
 
-form button {
+.search-form button {
   height: 50px;
   width: 100px;
   border: 0px;
@@ -159,6 +160,10 @@ div .result-image {
   max-width: 1000px;
 }
 
+#venue-type-form{
+ display: inline-block;
+}
+
 
 @media screen and (min-width: 640px) {
   .col-3 {
@@ -174,4 +179,11 @@ div .result-image {
   form button {
       margin-top: 15px;
   }
+}
+
+.venue-form{
+  text-align: center;
+  margin-top: 0px;
+  margin-right: 60px;
+  width: 40%;
 }
