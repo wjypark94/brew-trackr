@@ -37,7 +37,7 @@ function displayResults(result) {
     //console.log(result.venue.location.formattedAddress[0])
     //console.log(result);
         let brewLocation = result.venue.name;
-        let brewLink = `https://www.google.com/maps/search/${brewLocation} + ${result.venue.location.formattedAddress[1]}`;
+        //let brewLink = `https://www.google.com/maps/search/${brewLocation} + ${result.venue.location.formattedAddress[1]}`;
         if (result.venue.photos.groups.length > 0){
             return `
                 <div class="result col-3">
@@ -54,7 +54,7 @@ function displayResults(result) {
                         <p class="result-address">${result.venue.location.formattedAddress[0]}</p>
                         <p class="result-address">${result.venue.location.formattedAddress[1]}</p>
                         <p class="result-address">${result.venue.location.formattedAddress[2]}</p>
-                        <a class="hike-directions" href="${brewLink}" target="_blank">Get Directions</a>
+                        <button type="submit" aria-label="search" class="save-button">Save</button>
                     </div>
                 </div>
             `;
