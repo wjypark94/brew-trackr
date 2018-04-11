@@ -23,11 +23,12 @@ function getDataFromFourApi() {
                 });
                 $('#foursquare-results').html(results);
                 $('.save1-button').on('click', function(e){
-                    console.log("hello!")
+                    //console.log("hello!")
                     event.preventDefault();
                     addNewBrew();
                     var e = window.event,
                     btn = e.target || e.srcElement;
+                    //console.log(btn);
                     //console.log(btn.id);
                     //console.log($('#' + btn.id).attr('imgurl'));
                });
@@ -106,7 +107,7 @@ function displayResults(result) {
               console.log("it is added")
               console.log(title)
               console.log(localStorage.getItem('userId'));
-              //window.location = "/placesnew.html";
+             //window.location = "/placesnew.html";
             }
         });
     }

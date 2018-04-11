@@ -1,4 +1,6 @@
 function getBrewEntries(callbackFn) {
+   // $('.save2-button').click(function () {
+     //   console.log("hello")
     $.ajax({
       url: `/brewlist/user/${localStorage.getItem('userId')}`,
       type: 'GET',
@@ -7,26 +9,32 @@ function getBrewEntries(callbackFn) {
       success: data => {
         if(data) {
           let results = data;
+          console.log(results);
           callbackFn(results);
         }
       }
     });
+//})
   }
 
 
-function displayRecipeEntries(data) {
-    console.log(data);
-         $('.container').append(`
-            <div class="col-8" id="${data}">
-              <div class="acd-content col-12">
-              </div>
-            </div>
-          `);
-    
+function displayBrewEntries(data) {
+
+    for (index in data.brew) {
+        $('.container').append(`
+           <div class="col-8" id="${data.brew[index].id}">
+           ${data.brew[index].title}
+             <div class="acd-content col-12">
+
+
+             </div>
+           </div>
+         `);
+   }
   }
 
-  function getAndDisplayRecipeEntries() {
-    getBrewEntries(displayRecipeEntries);
+  function getAndDisplayBrewEntries() {
+    getBrewEntries(displayBrewEntries);
   }
   
   const token = localStorage.getItem('token');
@@ -38,7 +46,7 @@ $.ajax({
     Authorization: `Bearer ${token}`
   },
   success: response => $('.header').html(response.data),
-  error: error => window.location = "/"
+  //error: error => window.location = "/"
 });
 
-$(getAndDisplayRecipeEntries);
+$(getAndDisplayBrewEntries);
