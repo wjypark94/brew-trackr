@@ -4,12 +4,12 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-// this is my schema to represent a new recipe post
+// this is my schema to represent a new brew post
 const newBrewSchema = mongoose.Schema({
   userId: {type: String},
   id: {type: String},
   title: {type: String, required: true},
-  content: {type: String, required: true},
+  img: {type: String},
 });
 
 newBrewSchema.methods.serialize = function() {
@@ -18,7 +18,7 @@ newBrewSchema.methods.serialize = function() {
     id: this._id,
     userId: this.userId,
     title: this.title,  
-    content: this.content,
+    img: this.img,
   };
 }
 

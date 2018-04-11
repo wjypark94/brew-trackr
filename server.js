@@ -22,7 +22,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(morgan('common'));
 
-app.use('/brew', brewRouter);
+app.use('/brewlist', brewRouter);
 // CORS
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -48,6 +48,10 @@ app.use('*', function (req, res) {
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
+
+app.get('/brewlist', (req, res) => {
+    res.sendFile(__dirname + '/public/placesnew.html');
+  });
 
 
 

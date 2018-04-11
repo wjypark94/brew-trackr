@@ -24,10 +24,12 @@ function getDataFromFourApi() {
                 $('#foursquare-results').html(results);
                 $('.save1-button').on('click', function(e){
                     console.log("hello!")
+                    event.preventDefault();
+                    addNewBrew();
                     var e = window.event,
                     btn = e.target || e.srcElement;
-                    console.log(btn.id);
-                    console.log($('#' + btn.id).attr('imgurl'));
+                    //console.log(btn.id);
+                    //console.log($('#' + btn.id).attr('imgurl'));
                });
             } catch (e) {
                 console.log(e);
@@ -68,9 +70,6 @@ function displayResults(result) {
             `;
         } 
     }
-   $('.save1-button').on('click', function(){
-        console.log("hello!")
-   });
 
 
     function searchLocation() {
@@ -91,69 +90,37 @@ function displayResults(result) {
         let autocomplete = new google.maps.places.Autocomplete(input, options);
     }
     
-
-   /* function addNewBrew(){
-        $('.result-description').on('click', '.save-button', function(){
-            console.log("this is working")
-            let myBrew = {};
-            myBrew.resultName =  $(this).closest('.result col-3').find('.result-name').text();
-          addBrew(myBrew);
-        })
-    }
-    */
-
-    /*function addBrew(brewInfo){
+//post brew lists
+    function postBrewRequest(userId, title, img){
         $.ajax({
-            url: "/placesnew",
-            type: "POST",
-            dataType: "json",
-            data: JSON.stringify(brewInfo),
-            contentType: 'application/json'
-        })
-        .done(function (results) {
-            //alert that the place has been added
-            console.log("hello")
-            displayError(results);
-        })
-        .fail(function (error, errorThrown) {
-            console.log(error);
-            console.log(errorThrown);
-        })
-    }*/
-
-
-    /*
-    function addNewBrew() {
-        const userId = localStorage.getItem('userId');
-        const brewTitle = $('result-name').val().trim();
-        postBrewRequest(userId, brewTitle);
-    }
-    
-    function postBrewRequest(userId, brewTitle){
-      $.ajax({
-          method: 'POST',
-          url: '/placesnew',
-          data: JSON.stringify({
-            userId: localStorage.getItem('userId'),
-            title: title,
-          }),
-          contentType: 'application/json',
-          dataType: 'json',
-          success: result => {
+            method: 'POST',
+            url: '/brewlist',
+            data: JSON.stringify({
+              userId: localStorage.getItem('userId'),
+              title: title,
+            }),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: result => {
               console.log(result);
-              window.location ="/placesnew.html"
-          }
-      })
+              console.log("it is added")
+              console.log(title)
+              console.log(localStorage.getItem('userId'));
+              //window.location = "/placesnew.html";
+            }
+        });
     }
 
-      function saveLocation(){
-      $('.result col-3').submit(function(event){
-          console.log("hello");
-          event.preventDefault();
-          addNewBrew();
-      });
+    function addNewBrew(){
+        const userId = localStorage.getItem('userId');
+        var e = window.event;
+        btn = e.target || e.srcElement;
+        const brewTitle = btn.id;
+        const img = $('#' + btn.id).attr('imgurl');
+
+        postBrewRequest(userId, brewTitle, img);
     }
-*/
+
 
     $(searchLocation);
 
