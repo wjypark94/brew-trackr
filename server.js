@@ -14,12 +14,15 @@ const {DATABASE_URL, PORT} = require('./config');
 
 const app = express();
 
+const brewRouter = require('./brewRouter');
+
 //telling our app to use express.static middleware
 //saying that static assets are located in a folder called public
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(morgan('common'));
 
+app.use('/brew', brewRouter);
 // CORS
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -46,9 +49,7 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-app.get('/places', (req, res) => {
-  res.sendFile(__dirname + '/public/places.html');
-});
+
 
 
 
