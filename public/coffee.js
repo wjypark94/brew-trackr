@@ -107,7 +107,7 @@ function displayResults(result) {
               console.log("it is added")
               console.log(title)
               console.log(localStorage.getItem('userId'));
-             //window.location = "/placesnew.html";
+             window.location = "/placesnew.html";
             }
         });
     }

@@ -25,19 +25,46 @@ function displayBrewEntries(data) {
            <div class="col-8" id="${data.brew[index].id}">
            ${data.brew[index].title}
              <div class="acd-content col-12">
-
-
+             <button id="${data.brew[index].id}" class="delete-btn">Delete</button><button id="${data.brew[index].id}" class="edit-btn">Edit</button>
+             <div id="raw-data" hidden>${JSON.stringify(data.brew[index])}</div>
              </div>
            </div>
          `);
    }
   }
+  function deleteBrewEntries(data) {
+    for (index in data.brew) {
+      $('.delete-btn').on('click', function(event) {
+        let brewId = $(this).attr('id');
+        console.log(brewId);
+        $.ajax({
+          url: `/brewlist/${brewId}`,
+          type: 'DELETE',
+          dataType: 'json',
+          contentType: 'application/json',
+  
+          success: data => {
+            console.log("it worked!")
+            window.location = "/placesnew.html"
+          }
+        });
+      });
+    }
+  }
 
   function getAndDisplayBrewEntries() {
     getBrewEntries(displayBrewEntries);
   }
+
+
+function getAndDeleteBrewEntries() {
+    getBrewEntries(deleteBrewEntries);
+  }
   
-  const token = localStorage.getItem('token');
+  
+
+
+const token = localStorage.getItem('token');
 
 $.ajax({
   method: 'GET',
@@ -50,3 +77,4 @@ $.ajax({
 });
 
 $(getAndDisplayBrewEntries);
+$(getAndDeleteBrewEntries);

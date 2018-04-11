@@ -62,5 +62,12 @@ router.post('/', (req, res) => {
     });
 });
 
+router.delete('/:id', (req, res) => {
+  Brew
+    .findByIdAndRemove(req.params.id)
+    .then(brew => res.status(204).end())
+    .catch(err => res.status(500).json({ message: 'Internal server error' }));
+});
+
 
 module.exports = router;
