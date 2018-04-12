@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/float-grid.css">
-  <link rel="stylesheet" type="text/css" href="/placesnew.css">
+  <link rel="stylesheet" type="text/css" href="/editbrews.css">
 </head>
 <body>
   
@@ -24,12 +24,31 @@
             </ul>
         </nav>
   </section>
-  <div class="container row"></div>
+
+  <h1>My Brew</h1>
+  <main>
+        <div class="row">
+            <div class="col-3">
+                <form class="new-brew-form">
+                  <div name="new-brew-input row">
+                      <input class="col-12" placeholder="Brew Place" type="text" name="brew-title" id="brew-title" autocomplete="off"/>
+                      <textarea id="todolist" rows="8" cols="60" class="brew-entry col-12" placeholder="Write comments..."></textarea>
+                  </div>
+                </div>
+    
+                    <div class="submit col-3">
+                      <button type="submit" class="publish">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </main>
+
 
   <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
-  <script src="/placesnew.js"></script>
+  <script src="/editbrews.js"></script>
 </body>
 </html>

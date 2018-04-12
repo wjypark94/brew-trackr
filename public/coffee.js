@@ -92,13 +92,15 @@ function displayResults(result) {
     }
     
 //post brew lists
-    function postBrewRequest(userId, title, img){
+    function postBrewRequest(userId, title, img, content){
         $.ajax({
             method: 'POST',
             url: '/brewlist',
             data: JSON.stringify({
               userId: localStorage.getItem('userId'),
               title: title,
+              img: img,
+              content: content,
             }),
             contentType: 'application/json',
             dataType: 'json',
@@ -118,8 +120,9 @@ function displayResults(result) {
         btn = e.target || e.srcElement;
         const brewTitle = btn.id;
         const img = $('#' + btn.id).attr('imgurl');
-
-        postBrewRequest(userId, brewTitle, img);
+        //console.log(btn);
+        const content = "";
+        postBrewRequest(userId, brewTitle, img, content);
     }
 
 

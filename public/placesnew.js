@@ -22,9 +22,11 @@ function displayBrewEntries(data) {
 
     for (index in data.brew) {
         $('.container').append(`
-           <div class="col-8" id="${data.brew[index].id}">
-           ${data.brew[index].title}
+           <div class="col-8" id="${data.brew[index].id}">      
+           <button class="btn row"> ${data.brew[index].title}</button
+             <img src="${data.brew[index].img}">
              <div class="acd-content col-12">
+             <p class="brew-content">${data.brew[index].content}</p>
              <button id="${data.brew[index].id}" class="delete-btn">Delete</button><button id="${data.brew[index].id}" class="edit-btn">Edit</button>
              <div id="raw-data" hidden>${JSON.stringify(data.brew[index])}</div>
              </div>
@@ -78,3 +80,12 @@ $.ajax({
 
 $(getAndDisplayBrewEntries);
 $(getAndDeleteBrewEntries);
+
+$(document).on('click', 'button', function () {
+    $(this).toggleClass("max").next().slideToggle(500);
+});
+
+$(document).on('click', '.edit-btn', function(event) {
+    window.localStorage.setItem('brew', $(this).siblings('#raw-data').text())
+    window.location = '/editbrews.html';
+  });
