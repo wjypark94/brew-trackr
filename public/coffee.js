@@ -46,7 +46,7 @@ function getDataFromFourApi() {
 function displayResults(result) {
     //console.log(result.venue.location.formattedAddress[0])
     //console.log(result);
-    
+    console.log(result.venue.name);
         let brewLocation = result.venue.name;
        // let brewLink = `https://www.google.com/maps/search/${brewLocation} + ${result.venue.location.formattedAddress[1]}`;
         if (result.venue.photos.groups.length > 0){
@@ -109,7 +109,7 @@ function displayResults(result) {
               console.log("it is added")
               console.log(title)
               console.log(localStorage.getItem('userId'));
-             window.location = "/placesnew.html";
+             //window.location = "/placesnew.html";
             }
         });
     }

@@ -3,7 +3,6 @@ const FOURSQUARE_SEARCH_URL = "https://api.foursquare.com/v2/venues/explore?&cli
 //retrieve data from FourSquareAPI
 
 function getDataFromFourApi() {
-    
     let city = $('.search-query').val();
     let category = $(this).text();
     $.ajax(FOURSQUARE_SEARCH_URL, {
@@ -17,9 +16,10 @@ function getDataFromFourApi() {
         type: 'GET',
         success: function (data) {
             try {
-                console.log(data);
+                //console.log(data);
                 let results = data.response.groups[0].items.map(function (item, index) {
-                   return displayResults(item);
+                    console.log(item);
+                    return displayResults(item);
                 });
                 $('#foursquare-results').html(results);
                 $('.save1-button').on('click', function(e){
@@ -45,10 +45,9 @@ function getDataFromFourApi() {
 
 function displayResults(result) {
     //console.log(result.venue.location.formattedAddress[0])
-    //console.log(result);
-    
+    //ååconsole.log(result.venue.name);
         let brewLocation = result.venue.name;
-       // let brewLink = `https://www.google.com/maps/search/${brewLocation} + ${result.venue.location.formattedAddress[1]}`;
+        //let brewLink = `https://www.google.com/maps/search/${brewLocation} + ${result.venue.location.formattedAddress[1]}`;
         if (result.venue.photos.groups.length > 0){
             return `
                 <div class="result col-3">
@@ -65,13 +64,12 @@ function displayResults(result) {
                         <p class="result-address">${result.venue.location.formattedAddress[0]}</p>
                         <p class="result-address">${result.venue.location.formattedAddress[1]}</p>
                         <p class="result-address">${result.venue.location.formattedAddress[2]}</p>
-                        <button type="submit" aria-label="search" id=${result.venue.name} imgurl=${result.venue.categories[0].icon.prefix}bg_32${result.venue.categories[0].icon.suffix} class="save1-button">Save</button>
+                        <button type="submit" aria-label="search" id=${result.venue.name} class="save1-button">Save</button>
                     </div>
                 </div>
             `;
         } 
     }
-
 
     function searchLocation() {
         $('.search-form').submit(function (event) {
@@ -91,7 +89,8 @@ function displayResults(result) {
         let autocomplete = new google.maps.places.Autocomplete(input, options);
     }
     
-//post brew lists
+
+    //post brew lists
     function postBrewRequest(userId, title, img, content){
         $.ajax({
             method: 'POST',
@@ -120,11 +119,10 @@ function displayResults(result) {
         btn = e.target || e.srcElement;
         const brewTitle = btn.id;
         const img = $('#' + btn.id).attr('imgurl');
-        console.log(btn);
+        //console.log(btn);
         const content = "";
         postBrewRequest(userId, brewTitle, img, content);
     }
 
 
     $(searchLocation);
-
