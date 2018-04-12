@@ -17,7 +17,7 @@ function getDataFromFourApi() {
         type: 'GET',
         success: function (data) {
             try {
-                //console.log(data);
+                console.log(data);
                 let results = data.response.groups[0].items.map(function (item, index) {
                    return displayResults(item);
                 });
@@ -120,7 +120,7 @@ function displayResults(result) {
         btn = e.target || e.srcElement;
         const brewTitle = btn.id;
         const img = $('#' + btn.id).attr('imgurl');
-        //console.log(btn);
+        console.log(btn);
         const content = "";
         postBrewRequest(userId, brewTitle, img, content);
     }
