@@ -54,7 +54,8 @@ router.post('/', (req, res) => {
       title: req.body.title,
       img: req.body.img,
       userId: req.body.userId,
-      content: req.body.content
+      content: req.body.content,
+      address: req.body.address
     })
     .then(brew => res.status(201).json(brew.serialize()))
     .catch(err => {

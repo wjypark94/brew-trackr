@@ -46,8 +46,20 @@ function getDataFromFourApi() {
 function displayResults(result) {
     //console.log(result.venue.location.formattedAddress[0])
     //console.log(result);
-    console.log(result.venue.name);
-        let brewLocation = result.venue.name;
+  // console.log(result.venue.name);
+    let venueName = result.venue.name;
+    venueName = venueName.replace(/["'()]/g,"");
+    venueName = venueName.replace(/&/g, "");
+    // console.log(venueName);
+
+    let venueAddress1 = result.venue.location.formattedAddress[0];
+    let venueAddress2 = result.venue.location.formattedAddress[1];
+
+    venueAddress1 = venueAddress1.replace(/["'()&]/g,"");
+    venueAddress2 = venueAddress2.replace(/["'()&]/g,"");
+    //console.log(venueAddress1)
+    //console.log(venueAddress2);
+
        // let brewLink = `https://www.google.com/maps/search/${brewLocation} + ${result.venue.location.formattedAddress[1]}`;
         if (result.venue.photos.groups.length > 0){
             return `
@@ -65,7 +77,7 @@ function displayResults(result) {
                         <p class="result-address">${result.venue.location.formattedAddress[0]}</p>
                         <p class="result-address">${result.venue.location.formattedAddress[1]}</p>
                         <p class="result-address">${result.venue.location.formattedAddress[2]}</p>
-                        <button type="submit" aria-label="search" id=${result.venue.name} imgurl=${result.venue.categories[0].icon.prefix}bg_32${result.venue.categories[0].icon.suffix} class="save1-button">Save</button>
+                        <button type="submit" aria-label="search" address1="${venueAddress1}" address2="${venueAddress2}" id="${venueName}" imgurl=${result.venue.categories[0].icon.prefix}bg_32${result.venue.categories[0].icon.suffix} class="save1-button">Save</button>
                     </div>
                 </div>
             `;
@@ -120,9 +132,13 @@ function displayResults(result) {
         btn = e.target || e.srcElement;
         const brewTitle = btn.id;
         const img = $('#' + btn.id).attr('imgurl');
-        console.log(btn);
+        const address = $('#' + btn.id).attr('address1') + $('#' + btn.id).attr('address2')
+        console.log("hello");
+        console.log(brewTitle);
+        console.log(address);
+        console.log("bye")
         const content = "";
-        postBrewRequest(userId, brewTitle, img, content);
+        postBrewRequest(userId, brewTitle, img, content, address);
     }
 
 
