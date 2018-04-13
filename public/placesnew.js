@@ -70,7 +70,7 @@ function getAndDeleteBrewEntries() {
 
 const token = localStorage.getItem('token');
 
-$.ajax({
+/*$.ajax({
   method: 'GET',
   url: '/api/protected',
   headers: {
@@ -79,6 +79,7 @@ $.ajax({
   success: response => $('.header').html(response.data),
   //error: error => window.location = "/"
 });
+*/
 
 $(getAndDisplayBrewEntries);
 $(getAndDeleteBrewEntries);

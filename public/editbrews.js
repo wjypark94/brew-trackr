@@ -14,11 +14,13 @@ function fillForm() {
   function updateBrewRequest(id, title, content, address) {
       if (window.localStorage.getItem('brew')) {
         const brew = JSON.parse(window.localStorage.getItem('brew'));
-        let brewId = brew.id;
-  
+        console.log(id);
+        console.log(title);
+        console.log(content);
+        console.log(address);
         $.ajax({
             method: 'PUT',
-            url: `/brewlist/${brewId}`,
+            url: `/brewlist/${id}`,
             data: JSON.stringify({
               id: id,
               title: title,
@@ -28,7 +30,7 @@ function fillForm() {
             contentType: 'application/json',
             dataType: 'json',
             success: result => {
-                window.location = "/placesnew.html";
+               // window.location = "/placesnew.html";
             }
         });
     }

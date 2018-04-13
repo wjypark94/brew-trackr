@@ -75,7 +75,7 @@ router.put('/:id', (req, res) => {
   }
 
   const toUpdate = {};
-  const updateableFields = ['title', 'content'];
+  const updateableFields = ['title', 'content', 'address'];
 
   updateableFields.forEach(field => {
     if (field in req.body) {
