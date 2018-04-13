@@ -5,12 +5,13 @@ function fillForm() {
         //console.log(recipe);  
         $('#brew-title').val(brew.title);
         $('.brew-entry').val(brew.content);
+        $('.brew-type').val(brew.address);
     }
   }
   
   // Update recipes
   
-  function updateBrewRequest(id, title, content) {
+  function updateBrewRequest(id, title, content, address) {
       if (window.localStorage.getItem('brew')) {
         const brew = JSON.parse(window.localStorage.getItem('brew'));
         let brewId = brew.id;
@@ -22,6 +23,7 @@ function fillForm() {
               id: id,
               title: title,
               content: content,
+              address: address,
             }),
             contentType: 'application/json',
             dataType: 'json',
@@ -39,14 +41,15 @@ function fillForm() {
       const brewId = brew.id;
       const brewTitle = $('#brew-title').val().trim();
       const brewContent = $('.brew-entry').val().trim();
+      const brewAddress = $('.brew-type').val().trim();
  
   
   
-      updateBrewRequest(brewId, brewTitle, brewContent);
+      updateBrewRequest(brewId, brewTitle, brewContent, brewAddress);
     }
   
   }
-  
+  //hit update and run addNewBrew function
   $('.new-brew-form').submit(function(event) {
       event.preventDefault();
       addNewBrew();

@@ -25,9 +25,15 @@ function getDataFromFourApi() {
                 $('.save1-button').on('click', function(e){
                     //console.log("hello!")
                     event.preventDefault();
-                    addNewBrew();
                     var e = window.event,
                     btn = e.target || e.srcElement;
+                    const brewTitle = btn.id;
+                    const img = btn.getAttribute('data-imgurl');
+                    const address = btn.getAttribute('data-address');
+                    console.log(btn.id);
+                    console.log(img);
+                    console.log(address);
+                    addNewBrew(brewTitle, img, address);
                     //console.log(btn);
                     //console.log(btn.id);
                     //console.log($('#' + btn.id).attr('imgurl'));
@@ -54,11 +60,12 @@ function displayResults(result) {
 
     let venueAddress1 = result.venue.location.formattedAddress[0];
     let venueAddress2 = result.venue.location.formattedAddress[1];
-
+    
     venueAddress1 = venueAddress1.replace(/["'()&]/g,"");
     venueAddress2 = venueAddress2.replace(/["'()&]/g,"");
-    //console.log(venueAddress1)
-    //console.log(venueAddress2);
+    venueAddress3 = venueAddress1 + " " + venueAddress2;
+    //console.log(venueAddress3);
+
 
        // let brewLink = `https://www.google.com/maps/search/${brewLocation} + ${result.venue.location.formattedAddress[1]}`;
         if (result.venue.photos.groups.length > 0){
@@ -77,7 +84,7 @@ function displayResults(result) {
                         <p class="result-address">${result.venue.location.formattedAddress[0]}</p>
                         <p class="result-address">${result.venue.location.formattedAddress[1]}</p>
                         <p class="result-address">${result.venue.location.formattedAddress[2]}</p>
-                        <button type="submit" aria-label="search" address1="${venueAddress1}" address2="${venueAddress2}" id="${venueName}" imgurl=${result.venue.categories[0].icon.prefix}bg_32${result.venue.categories[0].icon.suffix} class="save1-button">Save</button>
+                        <button type="submit" aria-label="search" data-address="${venueAddress3}" id="${venueName}" data-imgurl=${result.venue.categories[0].icon.prefix}bg_32${result.venue.categories[0].icon.suffix} class="save1-button">Save</button>
                     </div>
                 </div>
             `;
@@ -104,7 +111,7 @@ function displayResults(result) {
     }
     
 //post brew lists
-    function postBrewRequest(userId, title, img, content){
+    function postBrewRequest(userId, title, img, content, address){
         $.ajax({
             method: 'POST',
             url: '/brewlist',
@@ -113,31 +120,30 @@ function displayResults(result) {
               title: title,
               img: img,
               content: content,
+              address: address,
             }),
             contentType: 'application/json',
             dataType: 'json',
             success: result => {
-              console.log(result);
-              console.log("it is added")
-              console.log(title)
-              console.log(localStorage.getItem('userId'));
+            console.log(result);
+              //console.log(title)
+            //console.log(localStorage.getItem('userId'));
              //window.location = "/placesnew.html";
             }
         });
     }
 
-    function addNewBrew(){
+    
+    function addNewBrew(brewTitle, img, address){
         const userId = localStorage.getItem('userId');
-        var e = window.event;
-        btn = e.target || e.srcElement;
-        const brewTitle = btn.id;
-        const img = $('#' + btn.id).attr('imgurl');
-        const address = $('#' + btn.id).attr('address1') + $('#' + btn.id).attr('address2')
+        //var e = window.event;
+        //btn = e.target || e.srcElement;
+        //const brewTitle = btn.id;
+        //const img = $('#' + btn.id).attr('imgurl');
+        //const address = $('#' + btn.id).attr('address')
         console.log("hello");
-        console.log(brewTitle);
-        console.log(address);
-        console.log("bye")
-        const content = "";
+     
+        const content = "Write your review/comments here";
         postBrewRequest(userId, brewTitle, img, content, address);
     }
 

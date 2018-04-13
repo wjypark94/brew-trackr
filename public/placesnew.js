@@ -24,9 +24,10 @@ function displayBrewEntries(data) {
         $('.container').append(`
            <div class="col-8" id="${data.brew[index].id}">      
            <button class="btn row"> ${data.brew[index].title}</button
-             <img src="${data.brew[index].img}">
+           <img src="${data.brew[index].img}">
              <div class="acd-content col-12">
-
+             <img src="${data.brew[index].img}">
+             <p class="brew-type">Address: ${data.brew[index].address}</p>
              <p class="brew-content">${data.brew[index].content}</p>
              <button id="${data.brew[index].id}" class="delete-btn">Delete</button><button id="${data.brew[index].id}" class="edit-btn">Edit</button>
              <div id="raw-data" hidden>${JSON.stringify(data.brew[index])}</div>

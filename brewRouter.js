@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
       return res.status(400).send(message);
     }
   }
-
+console.log(req.body.address);
   Brew
     .create({
       title: req.body.title,
