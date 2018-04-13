@@ -33,7 +33,11 @@ $('.register-form').on('submit', event => {
            window.location = 'login.html' 
         },
 
-        error: error => console.log(error),
+        error: function(object, message) {
+            console.log(object);
+            $('.feedback').append(`<p>Username already taken!</p>`
+            );
+        }
     });
 });
 
@@ -52,6 +56,12 @@ $('.login-form').on('submit', event => {
         data: JSON.stringify({username, password}),
         contentType: 'application/json',
         dataType: 'json',
+        error: function(object, message, string){
+            console.log(object);
+            if(object.status === 401){
+                 $('.login-feedback').append(`<p>Incorrect username or password</p>`);
+            }
+        },
 
         success: response => {
             console.log(response.authToken, response.userId)

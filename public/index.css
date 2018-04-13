@@ -24,6 +24,11 @@
    
   }
 
+  .feedback {
+    color: maroon;
+    
+  }
+
   /**NAVIGATION CSS**/
   nav {
     position: fixed;
