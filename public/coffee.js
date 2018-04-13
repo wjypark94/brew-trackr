@@ -113,7 +113,7 @@ function displayResults(result) {
     }
     
 //post brew lists
-    function postBrewRequest(userId, title, img, content, address){
+    function postBrewRequest(userId, title, img, content, address, type){
         $.ajax({
             method: 'POST',
             url: '/brewlist',
@@ -123,6 +123,7 @@ function displayResults(result) {
               img: img,
               content: content,
               address: address,
+              type: type,
             }),
             contentType: 'application/json',
             dataType: 'json',
@@ -144,9 +145,9 @@ function displayResults(result) {
         //const img = $('#' + btn.id).attr('imgurl');
         //const address = $('#' + btn.id).attr('address')
         console.log("hello");
-     
+        const type = "coffee/brewery"
         const content = "Write your review/comments here";
-        postBrewRequest(userId, brewTitle, img, content, address);
+        postBrewRequest(userId, brewTitle, img, content, address, type);
     }
 
 

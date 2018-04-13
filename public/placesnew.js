@@ -27,7 +27,8 @@ function displayBrewEntries(data) {
            <img class="brew-image1" src="${data.brew[index].img}">
              <div class="acd-content col-12">
              <img class="brew-image" src="${data.brew[index].img}">
-             <p class="brew-type">Address: ${data.brew[index].address}</p>
+             <p class="brew-type">Type: ${data.brew[index].type}</p>
+             <p class="brew-address">Address: ${data.brew[index].address}</p>
              <p class="brew-content">${data.brew[index].content}</p>
              <button id="${data.brew[index].id}" class="delete-btn">Delete</button><button id="${data.brew[index].id}" class="edit-btn">Edit</button>
              <div id="raw-data" hidden>${JSON.stringify(data.brew[index])}</div>

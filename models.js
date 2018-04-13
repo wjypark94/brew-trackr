@@ -12,6 +12,7 @@ const newBrewSchema = mongoose.Schema({
   img: {type: String},
   content: {type: String},
   address: {type: String},
+  type: {type: String},
 });
 
 newBrewSchema.methods.serialize = function() {
@@ -23,6 +24,7 @@ newBrewSchema.methods.serialize = function() {
     img: this.img,
     content: this.content,
     address: this.address,
+    type: this.type,
   };
 }
 

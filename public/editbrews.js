@@ -5,13 +5,14 @@ function fillForm() {
         //console.log(recipe);  
         $('#brew-title').val(brew.title);
         $('.brew-entry').val(brew.content);
-        $('.brew-type').val(brew.address);
+        $('.brew-address').val(brew.address);
+        $('.brew-type').val(brew.type);
     }
   }
   
   // Update recipes
   
-  function updateBrewRequest(id, title, content, address) {
+  function updateBrewRequest(id, title, content, address, type) {
       if (window.localStorage.getItem('brew')) {
         const brew = JSON.parse(window.localStorage.getItem('brew'));
         console.log(id);
@@ -26,11 +27,12 @@ function fillForm() {
               title: title,
               content: content,
               address: address,
+              type: type,
             }),
             contentType: 'application/json',
             dataType: 'json',
             success: result => {
-               // window.location = "/placesnew.html";
+               window.location = "/placesnew.html";
             }
         });
     }
@@ -43,11 +45,12 @@ function fillForm() {
       const brewId = brew.id;
       const brewTitle = $('#brew-title').val().trim();
       const brewContent = $('.brew-entry').val().trim();
-      const brewAddress = $('.brew-type').val().trim();
+      const brewAddress = $('.brew-address').val().trim();
+      const brewType = $('.brew-type').val().trim();
  
   
   
-      updateBrewRequest(brewId, brewTitle, brewContent, brewAddress);
+      updateBrewRequest(brewId, brewTitle, brewContent, brewAddress, brewType);
     }
   
   }
@@ -56,3 +59,5 @@ function fillForm() {
       event.preventDefault();
       addNewBrew();
   });
+
+  $(fillForm);

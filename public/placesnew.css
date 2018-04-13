@@ -105,7 +105,7 @@ nav ul .nav-hover:hover {
     margin-bottom: 5px;
     position: relative;
     float: right;
-    bottom: 10px;
+    bottom: -25px;
     padding: 5px;
     width: 150px;
     padding-top: 5px;
@@ -125,5 +125,10 @@ nav ul .nav-hover:hover {
 .brew-image {
     height: 200px;
     width: auto;
+    float: left;
+}
+
+p {
+    margin-left: 220px;
 }
 

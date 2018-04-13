@@ -55,7 +55,8 @@ console.log(req.body.address);
       img: req.body.img,
       userId: req.body.userId,
       content: req.body.content,
-      address: req.body.address
+      address: req.body.address,
+      type: req.body.type,
     })
     .then(brew => res.status(201).json(brew.serialize()))
     .catch(err => {
@@ -75,7 +76,7 @@ router.put('/:id', (req, res) => {
   }
 
   const toUpdate = {};
-  const updateableFields = ['title', 'content', 'address'];
+  const updateableFields = ['title', 'content', 'address', 'type'];
 
   updateableFields.forEach(field => {
     if (field in req.body) {
