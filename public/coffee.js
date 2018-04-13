@@ -51,12 +51,13 @@ function getDataFromFourApi() {
 
 function displayResults(result) {
     //console.log(result.venue.location.formattedAddress[0])
-    //console.log(result);
+    console.log(result);
   // console.log(result.venue.name);
     let venueName = result.venue.name;
     venueName = venueName.replace(/["'()]/g,"");
     venueName = venueName.replace(/&/g, "");
     // console.log(venueName);
+  
 
     let venueAddress1 = result.venue.location.formattedAddress[0];
     let venueAddress2 = result.venue.location.formattedAddress[1];
@@ -64,6 +65,7 @@ function displayResults(result) {
     venueAddress1 = venueAddress1.replace(/["'()&]/g,"");
     venueAddress2 = venueAddress2.replace(/["'()&]/g,"");
     venueAddress3 = venueAddress1 + " " + venueAddress2;
+    let venuePhoto = "https://igx.4sqi.net/img/general/width960" + result.venue.photos.groups[0].items[0].suffix
     //console.log(venueAddress3);
 
 
@@ -84,7 +86,7 @@ function displayResults(result) {
                         <p class="result-address">${result.venue.location.formattedAddress[0]}</p>
                         <p class="result-address">${result.venue.location.formattedAddress[1]}</p>
                         <p class="result-address">${result.venue.location.formattedAddress[2]}</p>
-                        <button type="submit" aria-label="search" data-address="${venueAddress3}" id="${venueName}" data-imgurl=${result.venue.categories[0].icon.prefix}bg_32${result.venue.categories[0].icon.suffix} class="save1-button">Save</button>
+                        <button type="submit" aria-label="search" data-address="${venueAddress3}" id="${venueName}" data-imgurl=${venuePhoto} class="save1-button">Save</button>
                     </div>
                 </div>
             `;

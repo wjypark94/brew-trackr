@@ -122,3 +122,8 @@ nav ul .nav-hover:hover {
   color: gold;
 }
 
+.brew-image {
+    height: 200px;
+    width: auto;
+}
+
