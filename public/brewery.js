@@ -139,7 +139,7 @@ function displayResults(result) {
         //const img = $('#' + btn.id).attr('imgurl');
         //const address = $('#' + btn.id).attr('address')
         console.log("hello");
-        const type = "coffee/brewery"
+        const type = "Coffee/Brewery"
         const content = "Write your review/comments here";
         postBrewRequest(userId, brewTitle, img, content, address, type);
     }
