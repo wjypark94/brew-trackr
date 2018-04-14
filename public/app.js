@@ -35,8 +35,7 @@ $('.register-form').on('submit', event => {
 
         error: function(object, message) {
             console.log(object);
-            $('.feedback').append(`<p>Username already taken!</p>`
-            );
+            $('.feedback').show();
         }
     });
 });
@@ -59,7 +58,7 @@ $('.login-form').on('submit', event => {
         error: function(object, message, string){
             console.log(object);
             if(object.status === 401){
-                 $('.login-feedback').append(`<p>Incorrect username or password</p>`);
+                 $('.login-feedback').show();
             }
         },
 
