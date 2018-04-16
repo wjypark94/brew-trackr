@@ -71,3 +71,15 @@ $('.login-form').on('submit', event => {
         }
     })
 });
+$(function() {
+    $('body').vegas({
+        slides: [
+            {src: 'images/background1.jpg'},
+            {src: 'images/background2.jpg'},
+        ],
+        delay: 6000,
+        transition: 'fade',
+        timer: false,
+        cover:	true
+    });
+});

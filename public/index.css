@@ -4,13 +4,37 @@
 
   html body {  
     font-family: 'Roboto Condensed';
-    height: 100%;
+    margin: 0px;
+    padding: 0px;
     text-align: center;
     background: #f2f2f2;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+
+   
   }
 
+
+
+
+  .js-start-display {
+    filter: brightness(80%);
+
+    padding-top: 160px;
+    
+    
+  }
+
+
+
   header {
-      font-family: 'Roboto Condensed';
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    padding: 50px;
+    padding-top: 100px;
+    border-radius: 10px;
   }
 
   h1{
@@ -88,11 +112,11 @@
 
 #about {
     width: 100%;
-    height: 160%;
+    height: 100%;
     background: #f2f2f2;
     text-align: left;
     position: absolute;
-    top: 600px;
+    top: 800px;
   }
   
   .about-text {
@@ -120,7 +144,7 @@
     padding-bottom: 50px;
     padding-top: 30px;
     width: 100%;
-    height: 130%;
+    height: 200%;
     background: #f2f2f2;
     text-align: left;
     position: absolute;
@@ -152,7 +176,7 @@
   #register {
     padding-bottom: 100px;
     width: 100%;
-    height: 105%;
+    height: 130%;
     text-align: center;
     position: absolute;
     top: 2100px;
