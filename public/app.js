@@ -85,3 +85,9 @@ $(function() {
         cover:	true
     });
 });
+
+$('.learn-more-button').on('click', function(e){
+    e.preventDefault();
+    $('html, body').animate({scrollTop: $('#about').offset().top}, 1000)
+    //console.log("whats up!");
+})
