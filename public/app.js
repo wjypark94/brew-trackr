@@ -91,9 +91,15 @@ $(function() {
     });
 });
 
+
+/*** CLICK ARROWS TO SCROLL DOWN PAGE ****/
+
 $('.learn-more-button').on('click', function(e){
     e.preventDefault();
-    $('html, body').animate({scrollTop: $('#about').offset().top}, 1000)
+    $('html, body').animate({scrollTop: $('#about').offset().top}, 950)
     //console.log("whats up!");
 })
 
+$('.arrow').click(()=>{
+    $('html, body').animate({scrollTop: $('#register').offset().top}, 950)
+})

@@ -11,23 +11,6 @@
 
    
   }
-/*
-  .js-start-display {
-    filter: brightness(100%);
-    padding-top: 120px;
-    padding-left: 280px;
-    padding-right: 280px;    
-
-  }
-
-
-  header {
-    background-color: rgba(255, 255, 255, 0.7);
-    width: 100%;
-    padding: 30px;
-    border-radius: 10px;
-  }
-  */
 
   .js-start-display {
     filter: brightness(100%);
@@ -301,16 +284,17 @@ hr{
   position: relative;
   top: 10px;
   font-size: 20px;
-  font-weight: bold;
+  font-family: 'Roboto Condensed';
+
 }
 
 .bars {
   float:right;
   color: #f2f2f2;
-  font-size: 20px;
-  margin-right: 10px;
+  font-size: 21px;
   position: relative;
   bottom: 10px;
+  margin-right: 10px;
 }
 
 /***FOOTER***/
@@ -371,4 +355,12 @@ hr{
     position: static;
   }
 
+}
+
+
+/* arrow scroll down */
+.fa-arrow-circle-down {
+  color: grey;
+  margin-top: 40px;
+  font-size: 2.7em;
 }
