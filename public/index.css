@@ -85,12 +85,12 @@
 
   .nav-left {
     position: relative;
-    right: 95px;
+    right: 180px;
   }
   
   .nav-right {
     position: relative;
-    left: 95px;
+    left: 180px;
   }
 
   .nav-logo {
@@ -173,7 +173,9 @@
   width: 25%;
   padding-top: 110px;
 }
-
+hr{
+  width: 60%;
+}
 
 /*How to section*/
 /*
