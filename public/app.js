@@ -12,6 +12,11 @@ $('.register-button').on('click', event => {
 });
 
 
+$('.handle').on('click', function(event) {
+    $('nav ul').toggleClass('showing');
+  });
+
+
 
 // Register form
 
@@ -91,3 +96,4 @@ $('.learn-more-button').on('click', function(e){
     $('html, body').animate({scrollTop: $('#about').offset().top}, 1000)
     //console.log("whats up!");
 })
+

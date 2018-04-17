@@ -187,6 +187,7 @@
   padding-top: 110px;
 }
 
+
 hr{
   width: 60%;
 }
@@ -195,10 +196,10 @@ hr{
   
   #register {
     width: 100%;
-    height: 100%;
+    height: 120%;
     text-align: center;
     position: absolute;
-    top: 1330px;
+    top: 1370px;
     background: #f2f2f2;
   }
   
@@ -206,7 +207,7 @@ hr{
     display: inline-block;
     width: 100%;
     position: relative;
-    top: 90px;
+    top: 110px;
     text-align: center;
   }
   
@@ -285,3 +286,89 @@ hr{
   }
 }
 
+.handle {
+  width: 100%;
+
+  text-align: left;
+  padding: 12px 10px;
+  cursor: pointer;
+  display: none;
+  height:65px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.handle-menu {
+  position: relative;
+  top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.bars {
+  float:right;
+  color: #f2f2f2;
+  font-size: 20px;
+  margin-right: 10px;
+  position: relative;
+  bottom: 10px;
+}
+
+/***FOOTER***/
+.github-icon{
+  height: 30px;
+  width: 30px;
+}
+
+.linkedin-icon{
+  height: 30px;
+  width: 30px;
+}
+
+.email-icon{
+  height: 30px;
+  width: 30px;
+}
+
+
+
+
+@media screen and (max-width: 910px) {
+  nav ul {
+    max-height: 0;
+    background-color: rgba(255,255,255,.93);
+    color:black;
+    
+  }
+
+  nav{
+    background-color: black;
+    color: tan;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-family: 'Times New Roman';
+  }
+
+  .showing {
+    max-height: 22em;
+  }
+
+  nav ul li {
+    width: 100%;
+    padding: 18px 15px;
+    font-size: 17px;
+  }
+
+  .handle {
+    display:inline-block;
+  }
+
+  .nav-left {
+    position: static;
+  }
+
+  .nav-right {
+    position: static;
+  }
+
+}
