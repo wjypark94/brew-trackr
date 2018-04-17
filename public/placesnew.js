@@ -26,7 +26,7 @@ function displayBrewEntries(data) {
            <button class="btn row"> ${data.brew[index].title}</button
            <img class="brew-image1" src="${data.brew[index].img}">
              <div class="acd-content col-12">
-             <img class="brew-image" src="${data.brew[index].img}">
+             <img class="brew-image" src="${data.brew[index].img}" alt="brew-image">
              <p class="brew-type">Type: ${data.brew[index].type}</p>
              <p class="brew-address">Address: ${data.brew[index].address}</p>
              <p class="brew-content">${data.brew[index].content}</p>

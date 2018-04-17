@@ -13,7 +13,7 @@
 
     <main>
         <section role="region">
-              <header role="header">
+              <header>
                 <h1>BrewTrackr</h1>
               </header>
       
@@ -26,9 +26,13 @@
                     <form class="login-form">
                         <div aria-live= "assertive" aria-label="Error feedback" class= "login-feedback" style="display:none">Incorrect UserName or Password</div>
                       <fieldset>
-                        Username: <input type="text" name="username" placeholder ="Username" class="username" /><br>
-                        Password: <input type="password" name="password" placeholder="Password" class="password" /><br>
-                        <button type="submit" name="button" class="login-button-js">Login</button>
+                        <label for="username">Username: </label>
+                        <input type="text" id="username" name="username" placeholder ="Username" class="username" />
+                        <br>
+                        <label for="password">Password: </label>
+                        <input type="password" id="password" name="password" placeholder="Password" class="password" />
+                        <br>
+                        <button type="submit" name="button" class="login-button-js" aria-label="login">Login</button>
                         <p>Don't have an account? Register <a href="#" class="register-button">here</a></p>
                       <fieldset>
                     </form>

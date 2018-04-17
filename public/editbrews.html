@@ -11,7 +11,7 @@
 <body>
   
     <section role="region">
-        <header role="banner" class="title row">
+        <header class="title row">
            <h1 class="header">Edit Your Brew</h1>
         </header>
 
@@ -30,10 +30,10 @@
             <div class="col-3">
                 <form class="new-brew-form">
                   <div name="new-brew-input row">
-                      <input class="col-12" placeholder="Brew Place" type="text" name="brew-title" id="brew-title" autocomplete="off"/>
-                      <input class="brew-type col-4" placeholder="Coffee or Brewery?" name="brew-type" type="text" id="brew-address" autocomplete="off"/>
-                      <input class="brew-address col-3" placeholder="Address.." name="brew-address" type="text" id="brew-address" autocomplete="off"/>
-                      <textarea id="todolist" rows="8" cols="60" class="brew-entry col-12" placeholder="Write any comments/reviews..."></textarea>
+                      <input class="col-12" placeholder="Brew Place" aria-label="title-input" type="text" name="brew-title" id="brew-title" autocomplete="off"/>
+                      <input class="brew-type col-4" aria-label="brewtype-input" placeholder="Coffee or Brewery?" name="brew-type" type="text" id="brew-address" autocomplete="off"/>
+                      <input class="brew-address col-3" aria-label="address-input" placeholder="Address.." name="brew-address" type="text" id="brew-address" autocomplete="off"/>
+                      <textarea id="todolist" rows="8" cols="60" aria-label="text-area" class="brew-entry col-12" placeholder="Write any comments/reviews..."></textarea>
                   </div>
                 </div>
     

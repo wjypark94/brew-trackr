@@ -17,7 +17,7 @@
 <body>
   <main role="main">
     <div class="js-start-display" id="start-page">
-      <header class="row" role="banner">
+      <header class="row">
         <h1 class="logo">BrewTrackr</h1>
         <p>Keep track of all your favorite coffee and breweries!</p>
       </header>
@@ -111,13 +111,15 @@
                     <p role= "region" class= "feedback" style="display:none">Username already taken!</p>
                     <form class="register-form">
                       <fieldset>
-                        Username: <input type="text" name="username" class="username" /><br>
-                        Password: <input type="password" name="password" class="password" /><br>
-                        <button class="register-button" name="button">Register</button>
+                        <label for="username">Username: </label>
+                        <input type="text" id="username" name="username" class="username" /><br>
+                        <label for="password">Password: </label>
+                        <input type="password" id="password" name="password" class="password" /><br>
+                        <button class="register-button" name="button" aria-label="register">Register</button>
                       </fieldset>
                     </form>
                     </h6>
-                    <footer role="contentinfo" class="footer-info">
+                    <footer class="footer-info">
                       <a href="https://github.com/wjypark94" target="blank"> <img src="./images/github-icon1.png" alt="github icon" class="github-icon" ></a> 
                       <a href="https://www.linkedin.com/in/wjypark/" target="blank"> <img src="./images/linkedin-icon1.png" alt="linkedin icon" class="linkedin-icon"></a>
                       <a href="https://github.com/wjypark94" target="blank"> <img src="./images/email-icon1.png" alt="github icon" class="email-icon"></a> 

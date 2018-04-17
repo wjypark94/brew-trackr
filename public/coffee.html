@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css" href="/coffee.css">
 </head>
 <body>
-
+    <main role="main">
         <nav role="navigation" class="nav">
             <ul>
               <li class="nav-left"><span class="nav-logo">BrewTrackr</span></li>
@@ -22,28 +22,18 @@
         </nav>
 
         <div class="start-display" id="start-page">
-            <header class="row" role="banner">
+            <header class="row">
                 <h1 class="logo">BrewTrackr</h1>
                 <p class="plogo">Look up your favorite local coffee in any city!</p>
             </header>
 
             <form action="#" class="search-form row" id="search-query-form">
-                <input type="text" placeholder="Enter a city" class="search-query" id="search-term" required>
+                <input type="text" placeholder="Enter a city" aria-label="input" class="search-query" id="search-term" required>
                 <button type="submit" aria-label="search" class="submit-button">Search</button>
             </form>
             
           
           </div>
-
-          
-      
-   
-
-           
-         
-     
-     
-  <h1></h1>
 
   <nav role="navigation" class="navigation hide" id ="results-navigation">
       <div class="options row"></div>
