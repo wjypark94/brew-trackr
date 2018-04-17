@@ -115,7 +115,7 @@
     display: inline-block;
     width: 100%;
     position: relative;
-    top: 100px;
+    top: 55px;
   }
   
   .about-text h2 {
@@ -129,8 +129,54 @@
     padding-bottom: 30px;
   }
   
+  .col-4,
+  .col-12 {
+    float: left;
+    padding-left: 1.04166666%;
+    padding-right: 1.04166666%;
+  
+  }
 
+  .col-12{
+    width: 100%;
+  }
+
+  .description {
+    margin-bottom: 40px;
+  }
+
+.description-paragraph-1,
+.description-paragraph-2,
+.description-paragraph-3 {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.col-4 {
+  width: 33.333%;
+  
+}
+
+.img-wrapper{
+  text-align: center;
  
+}
+
+.register-icon{
+  width: 25%;
+  padding-top: 100px;
+}
+
+.brew-icon{
+  width: 25%;
+  padding-top: 100px;
+}
+
+.database-icon{
+  width: 25%;
+  padding-top: 100px;
+}
+
 
 /*How to section*/
 /*
