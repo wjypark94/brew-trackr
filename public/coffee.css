@@ -2,7 +2,7 @@
     box-sizing: border-box;
   }
   
-  /*Navigation*/
+  /*** Navigation Styling ***/
   
   
   html body {
@@ -52,6 +52,7 @@ nav ul .nav-hover:hover {
 
 h1 {
   text-align: center;
+  font-family: 'Homenaje';
 }
 
 
@@ -148,10 +149,6 @@ div .result-image {
   padding: 8px 4px 0 4px;
 }
 
-.hike-directions {
-  font-family: 'BenchNine';
-  font-size: 1.3em;
-}
 
 .row {
   padding-left: 20px;
@@ -188,29 +185,76 @@ div .result-image {
   width: 40%;
 }
 
-
-/*
-.options {
+/**** HANDLE MENU****/
+.handle {
   width: 100%;
-  margin: 5px auto 0 auto;
-  margin-top: 20px;
-  text-align: center;
-  margin: 0 auto 0 auto;
-  margin-top: 14px;
-  margin-top: 8px;
-}
-.food,
-.wine {
-  font: bold 2em "Audiowide", cursive, sans-serif;
-  display: inline-block;
-  width: 40%;
-  height: 40px;
-  border-radius: 10px 10px;
-  outline: none;
-  border: none;
-}
-.food:hover,
-.wine:hover {
+
+  text-align: left;
+  padding: 12px 10px;
   cursor: pointer;
+  display: none;
+  height:65px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-*/
+
+.handle-menu {
+  position: relative;
+  top: 10px;
+  font-size: 20px;
+  font-family: 'Roboto Condensed';
+
+}
+
+.bars {
+  float:right;
+  color: #f2f2f2;
+  font-size: 21px;
+  position: relative;
+  bottom: 10px;
+  margin-right: 10px;
+}
+
+/**** RESPONSIVE DESIGN ***/
+
+@media screen and (max-width: 645px) {
+  nav ul {
+    max-height: 0;
+    background-color: rgba(255,255,255,.93);
+    color:black;
+    
+  }
+
+  nav{
+    background-color: black;
+    color: tan;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-family: 'Times New Roman';
+  }
+
+  .showing {
+    max-height: 22em;
+  }
+
+  nav ul li {
+    width: 100%;
+    padding: 18px 15px;
+    font-size: 17px;
+  }
+
+  .handle {
+    display:inline-block;
+  }
+
+  .nav-left {
+    position: static;
+  }
+
+  .nav-right {
+    position: static;
+  }
+
+}
+
+

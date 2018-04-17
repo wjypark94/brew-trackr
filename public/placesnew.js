@@ -1,3 +1,5 @@
+//get brew entries
+
 function getBrewEntries(callbackFn) {
    // $('.save2-button').click(function () {
      //   console.log("hello")
@@ -14,10 +16,10 @@ function getBrewEntries(callbackFn) {
         }
       }
     });
-//})
   }
 
 
+//display the brew entries
 function displayBrewEntries(data) {
 
     for (index in data.brew) {
@@ -37,6 +39,10 @@ function displayBrewEntries(data) {
          `);
    }
   }
+
+
+  //delete the brew entries
+
   function deleteBrewEntries(data) {
     for (index in data.brew) {
       $('.delete-btn').on('click', function(event) {
@@ -57,17 +63,13 @@ function displayBrewEntries(data) {
     }
   }
 
-  function getAndDisplayBrewEntries() {
+function getAndDisplayBrewEntries() {
     getBrewEntries(displayBrewEntries);
   }
-
 
 function getAndDeleteBrewEntries() {
     getBrewEntries(deleteBrewEntries);
   }
-  
-  
-
 
 const token = localStorage.getItem('token');
 
@@ -82,14 +84,14 @@ const token = localStorage.getItem('token');
 });
 */
 
-$(getAndDisplayBrewEntries);
-$(getAndDeleteBrewEntries);
-
 $(document).on('click', 'button', function () {
-    $(this).toggleClass("max").next().slideToggle(500);
+  $(this).toggleClass("max").next().slideToggle(500);
 });
 
 $(document).on('click', '.edit-btn', function(event) {
-    window.localStorage.setItem('brew', $(this).siblings('#raw-data').text())
-    window.location = '/editbrews.html';
-  });
+  window.localStorage.setItem('brew', $(this).siblings('#raw-data').text())
+  window.location = '/editbrews.html';
+});
+
+$(getAndDisplayBrewEntries);
+$(getAndDeleteBrewEntries);

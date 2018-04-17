@@ -147,5 +147,7 @@ function displayResults(result) {
 
     $(searchLocation);
 
-
- 
+    //show hidden handle menu on click
+    $('.handle').on('click', function(event) {
+        $('nav ul').toggleClass('showing');
+     });

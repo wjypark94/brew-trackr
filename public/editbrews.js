@@ -1,14 +1,4 @@
-function fillForm() {
 
-    if (window.localStorage.getItem('brew')) {
-        const brew = JSON.parse(window.localStorage.getItem('brew'));
-        //console.log(recipe);  
-        $('#brew-title').val(brew.title);
-        $('.brew-entry').val(brew.content);
-        $('.brew-address').val(brew.address);
-        $('.brew-type').val(brew.type);
-    }
-  }
   
   // Update recipes
   
@@ -38,7 +28,6 @@ function fillForm() {
     }
   }
   
-  
   function addNewBrew() {
     if (window.localStorage.getItem('brew')) {
       const brew = JSON.parse(window.localStorage.getItem('brew'));
@@ -59,5 +48,18 @@ function fillForm() {
       event.preventDefault();
       addNewBrew();
   });
+
+/**** automatic autocomplete form****/
+function fillForm() {
+
+  if (window.localStorage.getItem('brew')) {
+      const brew = JSON.parse(window.localStorage.getItem('brew'));
+      //console.log(recipe);  
+      $('#brew-title').val(brew.title);
+      $('.brew-entry').val(brew.content);
+      $('.brew-address').val(brew.address);
+      $('.brew-type').val(brew.type);
+  }
+}
 
   $(fillForm);

@@ -4,47 +4,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Places</title>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto Condensed|Open Sans Condensed|BenchNine|Arapey|Homenaje|Shadows Into Light" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/float-grid.css">
   <link rel="stylesheet" href="stylesheets/vegas/vegas.min.css">
   <link rel="stylesheet" type="text/css" href="/brewery.css">
 </head>
 <body>
 <main role="main">
+    <nav role="navigation" class="nav">
+        <ul>
+            <li class="nav-left"><span class="nav-logo">BrewTrackr</span></li>
+            <a href="/coffee.html"><li class="nav-left nav-hover">Coffee</li></a>
+            <a href="/brewery.html"><li class="nav-left nav-hover">Breweries</li></a>
+            <a href="/placesnew.html"><li class="nav-right nav-hover">My Brew</li></a>
+            <a href="/"><li class="nav-right nav-hover log-out" id="demo-button">Log out</li></a>
+        </ul>
+        <div class="handle"><span class="handle-menu">BrewTrackr</span><p class="bars" aria-hidden="true">&#9776; Menu</p></div>
+    </nav>
 
-        <nav role="navigation" class="nav">
-            <ul>
-              <li class="nav-left"><span class="nav-logo">BrewTrackr</span></li>
-              <a href="/coffee.html"><li class="nav-left nav-hover">Coffee</li></a>
-              <a href="/brewery.html"><li class="nav-left nav-hover">Breweries</li></a>
-              <a href="/placesnew.html"><li class="nav-right nav-hover">My Brew</li></a>
-              <a href="/"><li class="nav-right nav-hover log-out" id="demo-button">Log out</li></a>
-            </ul>
-        </nav>
+    <div class="start-display" id="start-page">
+        <header class="row">
+            <h1 class="logo">BrewTrackr</h1>
+            <p>Look up your favorite local breweries in any city!</p>
+        </header>
 
-        <div class="start-display" id="start-page">
-            <header class="row">
-                <h1 class="logo">BrewTrackr</h1>
-                <p>Look up your favorite local breweries in any city!</p>
-            </header>
+        <form action="#" class="search-form row" id="search-query-form">
+            <input type="text" placeholder="Enter a city" aria-label="input" class="search-query" id="search-term" required>
+            <button type="submit" aria-label="search" class="submit-button">Search</button>
+        </form> 
+    </div>
 
-            <form action="#" class="search-form row" id="search-query-form">
-                <input type="text" placeholder="Enter a city" aria-label="input" class="search-query" id="search-term" required>
-                <button type="submit" aria-label="search" class="submit-button">Search</button>
-            </form>
-            
-          
-          </div>
-         
-
-  <nav role="navigation" class="navigation hide" id ="results-navigation">
+    <nav role="navigation" class="navigation hide" id ="results-navigation">
       <div class="options row"></div>
-   </nav>
+    </nav>
 
-  <section id="foursquare-results" class="row">
-     
-    </section>
-        
+  <section id="foursquare-results" class="row">   
+  </section>
 
 </main>
   <script

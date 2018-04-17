@@ -1,20 +1,22 @@
-header {
-  text-align: center;
-  font-size: 24px;
-  position: relative;
-  font-family: 'Roboto Condensed';
-}
+/**** LOGIN STYLING ***/
 
 #login {
   background: #f2f2f2;
   text-align: center;
   margin-right: 15%;
   margin-left: 15%;
-  margin-top: 20px;
+  margin-top: 150px;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border: 3px solid black;
   font-family: 'Roboto Condensed';
+}
+
+hr{
+  width: 25%;
+  margin-top: -17px;
+  padding-top: 2px;
+  background-color: black;
 }
 
 .login-text h2 {
@@ -34,6 +36,7 @@ header {
   border-radius: 6px;
   border: solid 1px #c4c4c4;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.20);
+  font-family: 'BenchNine'
 }
 
 .login-feedback {
@@ -62,6 +65,7 @@ button {
   background-color: #333333;
   color: #f2f2f2;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.20);
+  font-family: 'Homenaje';
 }
 
 button:hover {

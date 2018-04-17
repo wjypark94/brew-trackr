@@ -2,7 +2,7 @@
     box-sizing: border-box;
   }
   
-  /*Navigation*/
+
   
   html body {
     background: #f2f2f2;
@@ -15,8 +15,11 @@
       margin-top: 90px;
       margin-left: 20px;
       text-align: left;
-
+      font-family: 'Homenaje';
   }
+
+
+  /*** Navigation styling ****/
 
   nav {
     position: fixed;
@@ -56,9 +59,7 @@ nav ul .nav-hover:hover {
 }
 
 
-/****/
-
-
+/**** entries styling for edit****/
 
 
 .acd-content {
@@ -132,3 +133,24 @@ p {
     margin-left: 220px;
 }
 
+/******RESPONSIVE DESIGN CSS****/
+
+@media screen and (max-width: 645px){
+  .delete-btn,
+  .edit-btn {
+      margin-bottom: 5px;
+      position: relative;
+      float: right;
+      bottom: -5px;
+      padding: 5px;
+      width: 100px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-radius: 5px;
+      background-color: #333333;
+      color: tan;
+      margin-right: 50px;
+      box-shadow: 0 0 5px black;
+  }
+
+}

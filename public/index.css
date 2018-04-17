@@ -11,6 +11,7 @@
 
    
   }
+/*****Top page CSS***/
 
   .js-start-display {
     filter: brightness(100%);
@@ -20,17 +21,14 @@
 }
 
   header {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 10px;
     border-radius: 10px;
-    width: 80%;
+    width: 45%;
 }
 
-
-
-
   h1{
-      font-size: 60px;
+      font-size: 50px;
       margin-top: 30px;
       font-family: 'BenchNine'
   }
@@ -56,7 +54,6 @@
     z-index: 10;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.20);
   }
-
 
   nav a {
     text-decoration: none;
@@ -99,6 +96,7 @@
     color: orange;
 }
 
+/**** About Section Styling****/
 
 #about {
     width: 100%;
@@ -152,7 +150,7 @@
   
 }
 
-.img-wrapper{
+.image-wrapper{
   text-align: center;
  
 }
@@ -177,7 +175,7 @@ hr{
   width: 60%;
 }
  
-  /*Register section*/
+/*** Register section styling ****/
   
   #register {
     width: 100%;
@@ -251,8 +249,25 @@ hr{
     font-size: 19px;
   }
 
+  /***FOOTER***/
+.github-icon{
+  height: 30px;
+  width: 30px;
+}
 
+.linkedin-icon{
+  height: 30px;
+  width: 30px;
+}
 
+.email-icon{
+  height: 30px;
+  width: 30px;
+}
+
+footer {
+  font-family: 'Homenaje';
+}
 
   /*** responsive design ***/
 
@@ -274,6 +289,7 @@ hr{
   }
 }
 
+/**** HANDLE MENU****/
 .handle {
   width: 100%;
 
@@ -302,28 +318,7 @@ hr{
   margin-right: 10px;
 }
 
-/***FOOTER***/
-.github-icon{
-  height: 30px;
-  width: 30px;
-}
-
-.linkedin-icon{
-  height: 30px;
-  width: 30px;
-}
-
-.email-icon{
-  height: 30px;
-  width: 30px;
-}
-
-footer {
-  font-family: 'Homenaje';
-}
-
-
-
+/**** RESPONSIVE DESIGN ***/
 
 
 @media screen and (max-width: 910px) {
@@ -366,7 +361,6 @@ footer {
   }
 
 }
-
 
 /* arrow scroll down */
 .fa-arrow-circle-down {
