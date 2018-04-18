@@ -21,7 +21,7 @@ SignIn Page
 <img src="readme-images/4-signinpage.png">
 Coffee List Page
 <img src="readme-images/5-coffeepage.png">
-Brew List Page
+Breweries Page
 <img src="readme-images/6-brewpage.png">
 Brew List Page
 <img src="readme-images/9-brewlist.png">
@@ -32,7 +32,7 @@ Save Brew Page
 <img src="readme-images/8-savebrew.png">
 
 
-##Technology
+## Technology
 
 Front End
 <li> HTML5 </br>
