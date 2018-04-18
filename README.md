@@ -10,48 +10,48 @@ You can find the live demo of TrekCheck at:</br>
 https://obscure-scrubland-61538.herokuapp.com/
 
 ## Screenshots
-Start Display Page
+##Start Display Page
 <img src="readme-images/1-homepage.png">
 <img src="readme-images/1-homepage2.png">
-## About Section
+##About Section
 <img src="readme-images/2-aboutpage.png">
-## Register Section
+##Register Section
 <img src="readme-images/3-registerpage.png">
-## SignIn Page
+##SignIn Page
 <img src="readme-images/4-signinpage.png">
-## Coffee List Page
+##Coffee List Page
 <img src="readme-images/5-coffeepage.png">
-## Brew List Page
+##Brew List Page
 <img src="readme-images/6-brewpage.png">
-## Save Brew Page
+##Save Brew Page
 <img src="readme-images/7-savepage.png">
 <img src="readme-images/8-savebrew.png">
-## Brew List Page
+##Brew List Page
 <img src="readme-images/9-brewlist.png">
-## Edit Page
+##Edit Page
 <img src="readme-images/10-edit.png">
 
 
-## Technology
+##Technology
 
-##Front End
+Front End
 <li> HTML5 </br>
 <li> CSS3 </br>
 <li> JavaScript </br>
 <li> jQuery </br>
 
-##BackEnd
+BackEnd
 <li> Node.js </br>
 <li> Express.js </br>
 <li> MongoDB </br>
 <li> Mongoose</br>
 
-##Security and Authentication
+Security and Authentication
 <li> Passport.js </br>
 <li> bcrypt.js </br>
 <li> JSON Web Token</br>
 
-##Deployment, Version Control and Cloud Hosting
+Deployment, Version Control and Cloud Hosting
 <li> GitHub </br>
 <li> Heroku </br>
 <li> mLab</br>
