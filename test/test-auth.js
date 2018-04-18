@@ -27,7 +27,7 @@ describe('Auth endpoints', function(){
         }
 
         return chai.request(app)
-            .post('/user-account')
+            .post('/user-acc')
             .send(testUser)
             .then((res) => {
                 testUserId = res.body._id;
@@ -36,6 +36,7 @@ describe('Auth endpoints', function(){
     afterEach(function(){
         return User.remove({});
     });
+
 
     describe('/login endpoint', function(){
         it('Should reject a request with no credentials', function(){
