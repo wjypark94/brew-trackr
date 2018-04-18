@@ -23,7 +23,6 @@ const UserSchema = mongoose.Schema({
       type: String,
       required: true
     },
-    brew: [brewSchema]
   });
 
 UserSchema.methods.serialize = function() {

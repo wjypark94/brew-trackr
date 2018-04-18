@@ -16,6 +16,8 @@ const brewRouter = require('./brewRouter');
 const { Brew } = require('./models');
 
 const app = express();
+const jsonParser = bodyParser.json();
+
 
 
 //telling our app to use express.static middleware
@@ -26,6 +28,9 @@ app.use(morgan('common'));
 
 
 app.use('/brewlist', brewRouter);
+app.use('/login', jsonParser, authRouter);
+app.use('/user-acc/', usersRouter);
+
 // CORS
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -40,8 +45,6 @@ app.use(function (req, res, next) {
 passport.use(localStrategy);
 passport.use(jwtStrategy);
 
-app.use('/api/users/', usersRouter);
-app.use('/api/auth/', authRouter);
 
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
@@ -74,25 +77,24 @@ let server;
 //runServer is responsible for coordinating the connection
 //to the database and the running of the HTTP server
 //use Mongoose to connect to the database using the URL from config.js
-function runServer(databaseUrl, port = PORT) {
-
-    return new Promise((resolve, reject) => {
-      mongoose.connect(databaseUrl, err => {
-        if (err) {
-          return reject(err);
-        }
-        server = app.listen(port, () => {
-          console.log(`Your app is listening on port ${port}`);
-          resolve();
-        })
-          .on('error', err => {
-            mongoose.disconnect();
-            reject(err);
-          });
-      });
+function runServer(databaseUrl, port=PORT){
+    return new Promise(function(resolve, reject){
+        mongoose.connect(databaseUrl, function(err){
+                if(err){
+                    return reject(err);
+                }
+                console.log(`mongoose connected to ${databaseUrl}`);
+                server = app.listen(port, function(){
+                    console.log(`Your app is listening on port ${port}`);
+                    resolve();
+                })
+                .on('error', function(err){
+                    mongoose.disconnect();
+                    reject(err);
+                });
+        });
     });
-  }
-  
+}
 
 //closeServer needs access to a server object but that only 
 //gets created wen runServer runs so we declare server here 

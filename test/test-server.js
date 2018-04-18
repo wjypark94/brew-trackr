@@ -4,22 +4,20 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const faker = require('faker');
 const mongoose = require('mongoose');
-
-
-const expect = chai.expect;
-
-chai.use(chaiHttp);
-
-const {Brew} = require('../models');
 const {app, runServer, closeServer} = require('../server');
+const {Brew} = require('../models');
 const {TEST_DATABASE_URL} = require('../config');
 const {User} = require('../users/models');
 
+
+const expect = chai.expect;
+chai.use(chaiHttp);
+
+
 function seedBrewData() {
-    console.info('seeding brew data');
-    const seedData = [];
-    
-    for (let i=1; i<=10; i++) {
+   const seedData = [];
+   console.log('seeding brew data');
+   for (let i=1; i<=10; i++) {
         seedData.push(generateBrewData());
     }
     // this will return a promise
@@ -43,7 +41,7 @@ function seedBrewData() {
         }
         
         function tearDownDb(){
-            console.warn('Deleting database');
+            console.log('Deleting database');
             return mongoose.connection.dropDatabase();
         }
         
@@ -52,8 +50,15 @@ function seedBrewData() {
             before(function() {
                 return runServer(TEST_DATABASE_URL);
             });
-            
-            
+
+            beforeEach(function(){
+              return seedTestData();
+            });
+      
+            afterEach(function(){
+              return tearDownTestDb();
+            });
+ 
             after(function() {
                 return closeServer();
             });
@@ -195,13 +200,6 @@ function seedBrewData() {
                 });
               });
      
-            
-
-
-
-
-            
-
             /*describe('GET endpoint', function() {
               before(function(){
                   return runServer(TEST_DATABASE_URL);
