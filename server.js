@@ -18,8 +18,6 @@ const { Brew } = require('./models');
 const app = express();
 const jsonParser = bodyParser.json();
 
-
-
 //telling our app to use express.static middleware
 //saying that static assets are located in a folder called public
 app.use(express.static('public'));
