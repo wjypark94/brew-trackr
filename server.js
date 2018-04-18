@@ -12,15 +12,18 @@ const { router: usersRouter } = require('./users');
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 const {DATABASE_URL, PORT} = require('./config');
 
+const brewRouter = require('./brewRouter');
+const { Brew } = require('./models');
+
 const app = express();
 
-const brewRouter = require('./brewRouter');
 
 //telling our app to use express.static middleware
 //saying that static assets are located in a folder called public
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(morgan('common'));
+
 
 app.use('/brewlist', brewRouter);
 // CORS
@@ -40,54 +43,56 @@ passport.use(jwtStrategy);
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/', authRouter);
 
-
-app.use('*', function (req, res) {
-  return res.status(404).json({ message: 'Not Found' });
-});
-
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
-});
-
-app.get('/brewlist', (req, res) => {
-    res.sendFile(__dirname + '/public/placesnew.html');
-  });
-
-
-
-
-
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
-// A protected endpoint which needs a valid JWT to access it
+app.get('/api/protected', jwtAuth, (req, res) => {
+    return res.json({
+      data: 'My BrewList'
+    });
+  });
 
+  
+  app.get('/', (req, res) => {
+      res.sendFile(__dirname + '/public/index.html');
+    });
+    
+    app.get('/placesnew.html', (req, res) => {
+        res.sendFile(__dirname + '/public/placesnew.html');
+    });
+    
+    app.get('/editbrew.html', (req, res) => {
+        res.sendFile(__dirname + '/public/editbrews.html');
+    });
+    
+    app.use('*', function (req, res) {
+      return res.status(404).json({ message: 'Not Found' });
+    });
 
 
 let server;
-let port;
 
 //runServer is responsible for coordinating the connection
 //to the database and the running of the HTTP server
 //use Mongoose to connect to the database using the URL from config.js
+function runServer(databaseUrl, port = PORT) {
 
-function runServer(databaseUrl, port=PORT){
-    return new Promise(function(resolve, reject){
-        mongoose.connect(databaseUrl, function(err){
-                if(err){
-                    return reject(err);
-                }
-                console.log(`mongoose connected to ${databaseUrl}`);
-                server = app.listen(port, function(){
-                    console.log(`Your app is listening on port ${port}`);
-                    resolve();
-                })
-                .on('error', function(err){
-                    mongoose.disconnect();
-                    reject(err);
-                });
-        });
+    return new Promise((resolve, reject) => {
+      mongoose.connect(databaseUrl, err => {
+        if (err) {
+          return reject(err);
+        }
+        server = app.listen(port, () => {
+          console.log(`Your app is listening on port ${port}`);
+          resolve();
+        })
+          .on('error', err => {
+            mongoose.disconnect();
+            reject(err);
+          });
+      });
     });
-}
+  }
+  
 
 //closeServer needs access to a server object but that only 
 //gets created wen runServer runs so we declare server here 
@@ -96,22 +101,19 @@ function runServer(databaseUrl, port=PORT){
 //responsible for disconnecting from the database and
 //closing down the app
 
-function closeServer(){
-    return new Promise(function(resolve, reject){
-        mongoose.disconnect().then(()=>{
-            return new Promise(function(resolve, reject){
-                console.log("closing server");
-                server.close(err=>{
-                    if(err){
-                        console.log(err);
-                        return reject(err);
-                    }
-                    resolve();
-                });
-            });
+function closeServer() {
+    return mongoose.disconnect().then(() => {
+      return new Promise((resolve, reject) => {
+        console.log('Closing server');
+        server.close(err => {
+          if (err) {
+            return reject(err);
+          }
+          resolve();
         });
+      });
     });
-}
+  }
 
 //useful trick for making this file both an executabel script 
 //and a module

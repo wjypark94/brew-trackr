@@ -14,7 +14,7 @@ const {Brew} = require('../models');
 const {app, runServer, closeServer} = require('../server');
 const {TEST_DATABASE_URL} = require('../config');
 const {User} = require('../users/models');
-/*
+
 function seedBrewData() {
     console.info('seeding brew data');
     const seedData = [];
@@ -64,7 +64,7 @@ function seedBrewData() {
                     
                     let res;
                     return chai.request(app)
-                    .get('/brew')
+                    .get('/brewlist')
                     .then(function(_res) {
                         res = _res;
                         expect(res).to.have.status(200);
@@ -80,7 +80,7 @@ function seedBrewData() {
               
                     let resBrew;
                     return chai.request(app)
-                      .get('/brew')
+                      .get('/brewlist')
                       .then(function(res) {
                         expect(res).to.have.status(200);
                         expect(res).to.be.json;
@@ -116,7 +116,7 @@ function seedBrewData() {
                     const newBrew = generateBrewData();
               
                     return chai.request(app)
-                      .post('/brew')
+                      .post('/brewlist')
                       .send(newBrew)
                       .then(function(res) {
                         expect(res).to.have.status(201);
@@ -157,7 +157,7 @@ function seedBrewData() {
                         updateData.id = brew.id;
               
                         return chai.request(app)
-                          .put(`/brew/${brew.id}`)
+                          .put(`/brewlist/${brew.id}`)
                           .send(updateData);
                       })
                       .then(function(res) {
@@ -182,7 +182,7 @@ function seedBrewData() {
                       .findOne()
                       .then(function(_brew) {
                         brew = _brew;
-                        return chai.request(app).delete(`/brew/${brew.id}`);
+                        return chai.request(app).delete(`/brewlist/${brew.id}`);
                       })
                       .then(function(res) {
                         expect(res).to.have.status(204);
