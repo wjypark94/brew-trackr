@@ -4,6 +4,8 @@ const uuidv1 = require('uuid/v1');
 const {app, runServer, closeServer} = require('../server');
 const should = chai.should();
 chai.use(chaiHttp);
+
+/*
 describe('Get list of users', function(){
     before(function(){
         return runServer();
@@ -60,4 +62,4 @@ describe('Get list of users', function(){
         });
     });
 }); 
-
+*/
