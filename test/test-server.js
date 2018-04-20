@@ -14,7 +14,7 @@ const should = chai.should();
 
 const expect = chai.expect;
 chai.use(chaiHttp);
-/*
+
 describe('brew api resource', function(){
   before(function(){
       return runServer();
@@ -84,8 +84,8 @@ describe('brew api resource', function(){
           })
   });
   */
-/*
+
 });    
-*/
+
 
 

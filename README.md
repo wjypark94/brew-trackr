@@ -7,7 +7,7 @@ BrewTrackr is a coffee/breweries tracking app that goes above and beyond a simpl
 
 ## Live Demo
 You can find the live demo of TrekCheck at:</br>
-https://obscure-scrubland-61538.herokuapp.com/
+https://brewtrackr.herokuapp.com/
 
 ## Screenshots
 Start Display Page
