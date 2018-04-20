@@ -75,23 +75,23 @@ let server;
 //runServer is responsible for coordinating the connection
 //to the database and the running of the HTTP server
 //use Mongoose to connect to the database using the URL from config.js
-function runServer(databaseUrl, port=PORT){
-    return new Promise(function(resolve, reject){
-        mongoose.connect(databaseUrl, function(err){
-                if(err){
-                    return reject(err);
-                }
-                console.log(`mongoose connected to ${databaseUrl}`);
-                server = app.listen(port, function(){
-                    console.log(`Your app is listening on port ${port}`);
-                    resolve();
-                })
-                .on('error', function(err){
-                    mongoose.disconnect();
-                    reject(err);
-                });
-        });
-    });
+function runServer(databaseUrl=DATABASE_URL, port=PORT){
+  return new Promise(function(resolve, reject){
+      mongoose.connect(databaseUrl, function(err){
+              if(err){
+                  return reject(err);
+              }
+              console.log(`mongoose connected to ${databaseUrl}`);
+              server = app.listen(port, function(){
+                  console.log(`Your app is listening on port ${port}`);
+                  resolve();
+              })
+              .on('error', function(err){
+                  mongoose.disconnect();
+                  reject(err);
+              });
+      });
+  });
 }
 
 //closeServer needs access to a server object but that only 

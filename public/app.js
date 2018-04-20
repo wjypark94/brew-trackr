@@ -28,7 +28,7 @@ $('.register-form').on('submit', event => {
 
     $.ajax({
         method: 'POST',
-        url: '/api/users',
+        url: '/user-acc/',
         data: JSON.stringify({username, password}),
         contentType: 'application/json',
         dataType: 'json',
