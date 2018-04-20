@@ -56,7 +56,7 @@ $('.login-form').on('submit', event => {
 
     $.ajax({
         method: 'POST',
-        url: '/api/auth/login',
+        url: '/login',
         data: JSON.stringify({username, password}),
         contentType: 'application/json',
         dataType: 'json',

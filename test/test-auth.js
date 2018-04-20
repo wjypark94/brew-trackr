@@ -42,4 +42,22 @@ describe('Get list of users', function(){
             res.body.should.not.be.null;
         });
     });
+
+    it('should login a user on POST', function(){
+        const newItem = {
+            username: "demouser",
+            password: "123456"
+        };
+        return chai.request(app)
+        .post('/login')
+        .send(newItem)
+        .then(function(res){
+            res.should.have.status(200);
+            res.should.be.a.json;
+            res.should.be.a('object');
+            res.body.should.include.keys("authToken" ,"userId");
+            res.body.should.not.be.null;
+        });
+    });
 }); 
+
