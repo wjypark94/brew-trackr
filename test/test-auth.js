@@ -1,4 +1,3 @@
-/*
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const uuidv1 = require('uuid/v1');
@@ -63,4 +62,3 @@ describe('Get list of users', function(){
         });
     });
 }); 
-*/

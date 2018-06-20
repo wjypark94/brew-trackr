@@ -1,5 +1,5 @@
 'use strict';
-/*
+
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const faker = require('faker');
@@ -73,7 +73,7 @@ describe('brew api resource', function(){
       });
   });
   
-  /*it("should delete items on DELETE", function() {
+  it("should delete items on DELETE", function() {
       return chai.request(app)
         .delete("/brewlist")
         .then(function(res) {
@@ -86,4 +86,3 @@ describe('brew api resource', function(){
 
 
 });    
-*/
