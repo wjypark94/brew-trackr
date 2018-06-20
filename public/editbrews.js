@@ -1,6 +1,3 @@
-
-
-  
   // Update recipes
   
   function updateBrewRequest(id, title, content, address, type) {
@@ -37,13 +34,10 @@ function addNewBrew() {
     const brewContent = $('.brew-entry').val().trim();
     const brewAddress = $('.brew-address').val().trim();
     const brewType = $('.brew-type').val().trim();
-
-
-
     updateBrewRequest(brewId, brewTitle, brewContent, brewAddress, brewType);
   }
-
 }
+
 //hit update and run addNewBrew function
 $('.new-brew-form').submit(function(event) {
     event.preventDefault();

@@ -1,4 +1,3 @@
-
 const FOURSQUARE_SEARCH_URL = "https://api.foursquare.com/v2/venues/explore?&client_id=AAX334AWRMDG2K3UNKXSXT5REBQZH3EQQPH0EOPSGU3CRBDQ&client_secret=SDZVEYKZBHKAS54ESJJZXOYTGKN2RKJHLUXQX5L4GLT2PS4U&v=20180417";
 
 //retrieve data from FourSquareAPI
@@ -31,9 +30,6 @@ function getDataFromFourApi() {
                     const brewTitle = btn.id;
                     const img = btn.getAttribute('data-imgurl');
                     const address = btn.getAttribute('data-address');
-                    console.log(btn.id);
-                    console.log(img);
-                    console.log(address);
                     addNewBrew(brewTitle, img, address);
                });
             } catch (e) {
@@ -48,23 +44,16 @@ function getDataFromFourApi() {
 }
 
 function displayResults(result) {
-    //console.log(result.venue.location.formattedAddress[0])
-   // console.log(result);
-  // console.log(result.venue.name);
     let venueName = result.venue.name;
     venueName = venueName.replace(/["'()]/g,"");
     venueName = venueName.replace(/&/g, "");
-
-  
-
     let venueAddress1 = result.venue.location.formattedAddress[0];
     let venueAddress2 = result.venue.location.formattedAddress[1];
-    
     venueAddress1 = venueAddress1.replace(/["'()&]/g,"");
     venueAddress2 = venueAddress2.replace(/["'()&]/g,"");
     venueAddress3 = venueAddress1 + " " + venueAddress2;
-
     const FOURSQUARE_PHOTO_URL = "https://api.foursquare.com/v2/venues/" + result.venue.id + "/photos?&client_id=AAX334AWRMDG2K3UNKXSXT5REBQZH3EQQPH0EOPSGU3CRBDQ&client_secret=SDZVEYKZBHKAS54ESJJZXOYTGKN2RKJHLUXQX5L4GLT2PS4U&v=20180417"    
+    
     $.ajax(FOURSQUARE_PHOTO_URL, {
         data: {
             limit: 1,
@@ -80,9 +69,7 @@ function displayResults(result) {
         }
     })
 
-
     let venuePhoto = "https://igx.4sqi.net/img/general/width960" + myPhotoResult.response.photos.items[0].suffix;
-
             return `
                 <div class="result col-3">
                 <div class="result-image" style="background-image: url(https://igx.4sqi.net/img/general/width960${myPhotoResult.response.photos.items[0].suffix})" ;>
@@ -104,7 +91,6 @@ function displayResults(result) {
             `;
         } 
 
-
     function searchLocation() {
         $('.search-form').submit(function (event) {
             event.preventDefault();
@@ -112,8 +98,6 @@ function displayResults(result) {
             getDataFromFourApi();
         });
     }
-
-
 
     function activatePlacesSearch() {
         let options = {
@@ -139,28 +123,17 @@ function displayResults(result) {
             contentType: 'application/json',
             dataType: 'json',
             success: result => {
-            console.log(result);
-              //console.log(title)
-            //console.log(localStorage.getItem('userId'));
              //window.location = "/placesnew.html";
             }
         });
     }
-
     
     function addNewBrew(brewTitle, img, address){
         const userId = localStorage.getItem('userId');
-        //var e = window.event;
-        //btn = e.target || e.srcElement;
-        //const brewTitle = btn.id;
-        //const img = $('#' + btn.id).attr('imgurl');
-        //const address = $('#' + btn.id).attr('address')
-        console.log("hello");
         const type = "Coffee/Brewery"
         const content = "Write your review/comments here";
         postBrewRequest(userId, brewTitle, img, content, address, type);
     }
-
 
     $(searchLocation);
 

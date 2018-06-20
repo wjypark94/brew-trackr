@@ -30,9 +30,6 @@ function getDataFromFourApi() {
                     const brewTitle = btn.id;
                     const img = btn.getAttribute('data-imgurl');
                     const address = btn.getAttribute('data-address');
-                    console.log(btn.id);
-                    console.log(img);
-                    console.log(address);
                     addNewBrew(brewTitle, img, address);
                     //console.log(btn);
                     //console.log(btn.id);
@@ -50,25 +47,15 @@ function getDataFromFourApi() {
 }
 
 function displayResults(result) {
-    //console.log(result.venue.location.formattedAddress[0])
-    //console.log(result);
-
-   //console.log(result.venue.name);
     let venueName = result.venue.name;
     venueName = venueName.replace(/["'()]/g,"");
     venueName = venueName.replace(/&/g, "");
-    // console.log(venueName);
-  
-
     let venueAddress1 = result.venue.location.formattedAddress[0];
     let venueAddress2 = result.venue.location.formattedAddress[1];
-    
     venueAddress1 = venueAddress1.replace(/["'()&]/g,"");
     venueAddress2 = venueAddress2.replace(/["'()&]/g,"");
     venueAddress3 = venueAddress1 + " " + venueAddress2;
     let VENUE_ID = result.venue.id;
-    //console.log(result.venue.id);
-    
     const FOURSQUARE_PHOTO_URL = "https://api.foursquare.com/v2/venues/" + result.venue.id + "/photos?&client_id=AAX334AWRMDG2K3UNKXSXT5REBQZH3EQQPH0EOPSGU3CRBDQ&client_secret=SDZVEYKZBHKAS54ESJJZXOYTGKN2RKJHLUXQX5L4GLT2PS4U&v=20180417"
     
     $.ajax(FOURSQUARE_PHOTO_URL, {
@@ -85,11 +72,6 @@ function displayResults(result) {
                 //console.log(venuePhoto);
         }
     })
-
-    //console.log(myPhotoResult);
-    //let venuePhoto = "https://igx.4sqi.net/img/general/width960" + result.venue.photos.groups[0].items[0].suffix
-    //console.log(venueAddress3);
-
         let venuePhoto = "https://igx.4sqi.net/img/general/width960" + myPhotoResult.response.photos.items[0].suffix;
        // let brewLink = `https://www.google.com/maps/search/${brewLocation} + ${result.venue.location.formattedAddress[1]}`;
             return `
@@ -121,8 +103,6 @@ function displayResults(result) {
         });
     }
 
-
-
     function activatePlacesSearch() {
         let options = {
             types: ['(regions)']
@@ -131,7 +111,7 @@ function displayResults(result) {
         let autocomplete = new google.maps.places.Autocomplete(input, options);
     }
     
-//post brew lists
+    //post brew lists
     function postBrewRequest(userId, title, img, content, address, type){
         $.ajax({
             method: 'POST',
@@ -147,31 +127,21 @@ function displayResults(result) {
             contentType: 'application/json',
             dataType: 'json',
             success: result => {
-            console.log(result);
-              //console.log(title)
+            //console.log('success!');
             //console.log(localStorage.getItem('userId'));
              //window.location = "/placesnew.html";
             }
         });
     }
 
-    
     function addNewBrew(brewTitle, img, address){
         const userId = localStorage.getItem('userId');
-        //var e = window.event;
-        //btn = e.target || e.srcElement;
-        //const brewTitle = btn.id;
-        //const img = $('#' + btn.id).attr('imgurl');
-        //const address = $('#' + btn.id).attr('address')
-        console.log("hello");
         const type = "Coffee/Brewery"
         const content = "Write your review/comments here";
         postBrewRequest(userId, brewTitle, img, content, address, type);
     }
 
-
     $(searchLocation);
-
 
     //show hidden handle menu on click
     $('.handle').on('click', function(event) {  

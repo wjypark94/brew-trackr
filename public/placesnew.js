@@ -11,13 +11,12 @@ function getBrewEntries(callbackFn) {
      success: data => {
        if(data) {
          let results = data;
-         console.log(results);
+         //console.log(results);
          callbackFn(results);
        }
      }
    });
  }
-
 
 //display the brew entries
 function displayBrewEntries(data) {
@@ -47,7 +46,7 @@ function displayBrewEntries(data) {
    for (index in data.brew) {
      $('.delete-btn').on('click', function(event) {
        let brewId = $(this).attr('id');
-       console.log(brewId);
+       //console.log(brewId);
        $.ajax({
          url: `/brewlist/${brewId}`,
          type: 'DELETE',
@@ -55,7 +54,7 @@ function displayBrewEntries(data) {
          contentType: 'application/json',
  
          success: data => {
-           console.log("it worked!")
+           //console.log("it worked!")
            window.location = "/placesnew.html"
          }
        });
@@ -72,7 +71,6 @@ function getAndDeleteBrewEntries() {
  }
 
 const token = localStorage.getItem('token');
-
 
 $(document).on('click', 'button', function () {
  $(this).toggleClass("max").next().slideToggle(500);
