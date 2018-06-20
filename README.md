@@ -9,6 +9,9 @@ BrewTrackr is a coffee/breweries tracking app that goes above and beyond a simpl
 You can find the live demo of TrekCheck at:</br>
 https://brewtrackr.herokuapp.com/
 
+## Note
+The Foursquare API currently has a rate limit of 500 premium API calls per day. As of May 31, 3018 I had to add another Foursquare API endpoint to get Foursquare venues photos (premium calls) so this application will only be able to make 500 calls per day. If the daily quota max is used up, results will not be shown but will be available to use the next day. 
+
 ## Screenshots
 Start Display Page
 <img src="readme-images/1-homepage.png">

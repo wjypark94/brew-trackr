@@ -11,7 +11,7 @@ function getDataFromFourApi() {
         data: {
             near: city,
             venuePhotos: 1,
-            limit: 21,
+            limit: 9,
             query: 'breweries',
         },
         dataType: 'json',
@@ -64,8 +64,7 @@ function displayResults(result) {
     venueAddress2 = venueAddress2.replace(/["'()&]/g,"");
     venueAddress3 = venueAddress1 + " " + venueAddress2;
 
-    const FOURSQUARE_PHOTO_URL = "https://api.foursquare.com/v2/venues/" + result.venue.id + "/photos?&client_id=OW1NYHSOCNFTTHQSSTAXBGJZV2EF4KXSSO0DTFZMTE5P5IL3&client_secret=YYYA41DBMFVN30RXU5IVLI34KZ1Z2ZMFXK5F1B5NHV3JCVR0&v=20180417"
-    
+    const FOURSQUARE_PHOTO_URL = "https://api.foursquare.com/v2/venues/" + result.venue.id + "/photos?&client_id=AAX334AWRMDG2K3UNKXSXT5REBQZH3EQQPH0EOPSGU3CRBDQ&client_secret=SDZVEYKZBHKAS54ESJJZXOYTGKN2RKJHLUXQX5L4GLT2PS4U&v=20180417"    
     $.ajax(FOURSQUARE_PHOTO_URL, {
         data: {
             limit: 1,
