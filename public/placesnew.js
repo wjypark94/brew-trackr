@@ -73,16 +73,6 @@ function getAndDeleteBrewEntries() {
 
 const token = localStorage.getItem('token');
 
-/*$.ajax({
- method: 'GET',
- url: '/api/protected',
- headers: {
-   Authorization: `Bearer ${token}`
- },
- success: response => $('.header').html(response.data),
- //error: error => window.location = "/"
-});
-*/
 
 $(document).on('click', 'button', function () {
  $(this).toggleClass("max").next().slideToggle(500);

@@ -1,23 +1,23 @@
 const FOURSQUARE_SEARCH_URL = "https://api.foursquare.com/v2/venues/explore?&client_id=AAX334AWRMDG2K3UNKXSXT5REBQZH3EQQPH0EOPSGU3CRBDQ&client_secret=SDZVEYKZBHKAS54ESJJZXOYTGKN2RKJHLUXQX5L4GLT2PS4U&v=20180417";
 
+//const VENUE_ID = result.venue.id;
 //retrieve data from FourSquareAPI
 
 function getDataFromFourApi() {
-    
     let city = $('.search-query').val();
     let category = $(this).text();
     $.ajax(FOURSQUARE_SEARCH_URL, {
         data: {
             near: city,
             venuePhotos: 1,
-            limit: 21,
+            limit: 6,
             query: 'coffee',
         },
         dataType: 'json',
         type: 'GET',
         success: function (data) {
             try {
-                console.log(data);
+                //console.log(data);
                 let results = data.response.groups[0].items.map(function (item, index) {
                    return displayResults(item);
                 });
@@ -51,8 +51,9 @@ function getDataFromFourApi() {
 
 function displayResults(result) {
     //console.log(result.venue.location.formattedAddress[0])
-    console.log(result);
-  // console.log(result.venue.name);
+    //console.log(result);
+
+   //console.log(result.venue.name);
     let venueName = result.venue.name;
     venueName = venueName.replace(/["'()]/g,"");
     venueName = venueName.replace(/&/g, "");
@@ -65,15 +66,35 @@ function displayResults(result) {
     venueAddress1 = venueAddress1.replace(/["'()&]/g,"");
     venueAddress2 = venueAddress2.replace(/["'()&]/g,"");
     venueAddress3 = venueAddress1 + " " + venueAddress2;
-    let venuePhoto = "https://igx.4sqi.net/img/general/width960" + result.venue.photos.groups[0].items[0].suffix
+    let VENUE_ID = result.venue.id;
+    //console.log(result.venue.id);
+    
+    const FOURSQUARE_PHOTO_URL = "https://api.foursquare.com/v2/venues/" + result.venue.id + "/photos?&client_id=OW1NYHSOCNFTTHQSSTAXBGJZV2EF4KXSSO0DTFZMTE5P5IL3&client_secret=YYYA41DBMFVN30RXU5IVLI34KZ1Z2ZMFXK5F1B5NHV3JCVR0&v=20180417"
+    
+    $.ajax(FOURSQUARE_PHOTO_URL, {
+        data: {
+            limit: 1,
+        },
+        dataType: 'json',
+        type: 'GET',
+        async: false,
+        success: function(data){
+                //console.log(data);
+                myPhotoResult = data;
+                const venuePhoto = "https://igx.4sqi.net/img/general/width960" + data.response.photos.items[0].suffix;
+                //console.log(venuePhoto);
+        }
+    })
+
+    //console.log(myPhotoResult);
+    //let venuePhoto = "https://igx.4sqi.net/img/general/width960" + result.venue.photos.groups[0].items[0].suffix
     //console.log(venueAddress3);
 
-
+        let venuePhoto = "https://igx.4sqi.net/img/general/width960" + myPhotoResult.response.photos.items[0].suffix;
        // let brewLink = `https://www.google.com/maps/search/${brewLocation} + ${result.venue.location.formattedAddress[1]}`;
-        if (result.venue.photos.groups.length > 0){
             return `
                 <div class="result col-3">
-                    <div class="result-image" style="background-image: url(https://igx.4sqi.net/img/general/width960${result.venue.photos.groups[0].items[0].suffix})" ;>
+                    <div class="result-image" style="background-image: url(https://igx.4sqi.net/img/general/width960${myPhotoResult.response.photos.items[0].suffix})" ;>
                     </div>
                     <div class="result-description">
                         <h2 class="result-name">${result.venue.name}</h2>
@@ -86,13 +107,11 @@ function displayResults(result) {
                         <p class="result-address">${result.venue.location.formattedAddress[0]}</p>
                         <p class="result-address">${result.venue.location.formattedAddress[1]}</p>
                         <p class="result-address">${result.venue.location.formattedAddress[2]}</p>
-                        <button type="submit" aria-label="search" data-address="${venueAddress3}" id="${venueName}" data-imgurl=${venuePhoto} class="save1-button">Save</button>
+                        <button type="submit" aria-label="search" data-address="${venueAddress3}" id="${venueName}"  data-imgurl=${venuePhoto} class="save1-button">Save</button>
                     </div>
                 </div>
             `;
-        } 
     }
-
 
     function searchLocation() {
         $('.search-form').submit(function (event) {

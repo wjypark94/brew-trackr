@@ -49,7 +49,7 @@ function getDataFromFourApi() {
 
 function displayResults(result) {
     //console.log(result.venue.location.formattedAddress[0])
-    console.log(result);
+   // console.log(result);
   // console.log(result.venue.name);
     let venueName = result.venue.name;
     venueName = venueName.replace(/["'()]/g,"");
@@ -63,12 +63,30 @@ function displayResults(result) {
     venueAddress1 = venueAddress1.replace(/["'()&]/g,"");
     venueAddress2 = venueAddress2.replace(/["'()&]/g,"");
     venueAddress3 = venueAddress1 + " " + venueAddress2;
-    let venuePhoto = "https://igx.4sqi.net/img/general/width960" + result.venue.photos.groups[0].items[0].suffix
 
-        if (result.venue.photos.groups.length > 0){
+    const FOURSQUARE_PHOTO_URL = "https://api.foursquare.com/v2/venues/" + result.venue.id + "/photos?&client_id=OW1NYHSOCNFTTHQSSTAXBGJZV2EF4KXSSO0DTFZMTE5P5IL3&client_secret=YYYA41DBMFVN30RXU5IVLI34KZ1Z2ZMFXK5F1B5NHV3JCVR0&v=20180417"
+    
+    $.ajax(FOURSQUARE_PHOTO_URL, {
+        data: {
+            limit: 1,
+        },
+        dataType: 'json',
+        type: 'GET',
+        async: false,
+        success: function(data){
+                //console.log(data);
+                myPhotoResult = data;
+                const venuePhoto = "https://igx.4sqi.net/img/general/width960" + data.response.photos.items[0].suffix;
+                //console.log(venuePhoto);
+        }
+    })
+
+
+    let venuePhoto = "https://igx.4sqi.net/img/general/width960" + myPhotoResult.response.photos.items[0].suffix;
+
             return `
                 <div class="result col-3">
-                    <div class="result-image" style="background-image: url(https://igx.4sqi.net/img/general/width960${result.venue.photos.groups[0].items[0].suffix})" ;>
+                <div class="result-image" style="background-image: url(https://igx.4sqi.net/img/general/width960${myPhotoResult.response.photos.items[0].suffix})" ;>
                     </div>
                     <div class="result-description">
                         <h2 class="result-name">${result.venue.name}</h2>
@@ -86,7 +104,6 @@ function displayResults(result) {
                 </div>
             `;
         } 
-    }
 
 
     function searchLocation() {
