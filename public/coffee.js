@@ -1,4 +1,4 @@
-const FOURSQUARE_SEARCH_URL = "https://api.foursquare.com/v2/venues/explore?&client_id=AAX334AWRMDG2K3UNKXSXT5REBQZH3EQQPH0EOPSGU3CRBDQ&client_secret=SDZVEYKZBHKAS54ESJJZXOYTGKN2RKJHLUXQX5L4GLT2PS4U&v=20180417";
+const FOURSQUARE_SEARCH_URL = "https://api.foursquare.com/v2/venues/explore?&client_id=4EV4L2TYGITPLJCO4NYMHAXT1VU5ORATYF0DYR3OKO4O0LEF&client_secret=O0MRRAG1BNMQBID4LOIFNRD1XANUCP0J0TV2QTJAYNW1M5RR&v=20180417";
 
 //const VENUE_ID = result.venue.id;
 //retrieve data from FourSquareAPI
@@ -56,7 +56,7 @@ function displayResults(result) {
     venueAddress2 = venueAddress2.replace(/["'()&]/g,"");
     venueAddress3 = venueAddress1 + " " + venueAddress2;
     let VENUE_ID = result.venue.id;
-    const FOURSQUARE_PHOTO_URL = "https://api.foursquare.com/v2/venues/" + result.venue.id + "/photos?&client_id=AAX334AWRMDG2K3UNKXSXT5REBQZH3EQQPH0EOPSGU3CRBDQ&client_secret=SDZVEYKZBHKAS54ESJJZXOYTGKN2RKJHLUXQX5L4GLT2PS4U&v=20180417"
+    const FOURSQUARE_PHOTO_URL = "https://api.foursquare.com/v2/venues/" + result.venue.id + "/photos?&client_id=4EV4L2TYGITPLJCO4NYMHAXT1VU5ORATYF0DYR3OKO4O0LEF&client_secret=O0MRRAG1BNMQBID4LOIFNRD1XANUCP0J0TV2QTJAYNW1M5RR&v=20180417"
     
     $.ajax(FOURSQUARE_PHOTO_URL, {
         data: {
